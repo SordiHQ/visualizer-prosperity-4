@@ -7,6 +7,7 @@ import HighchartsReact from 'highcharts-react-official';
 import merge from 'lodash/merge';
 import { ReactNode, useMemo } from 'react';
 import { useActualColorScheme } from '../../hooks/use-actual-color-scheme.ts';
+import { useStore } from '../../store.ts';
 import { formatNumber } from '../../utils/format.ts';
 import { VisualizerCard } from './VisualizerCard.tsx';
 
@@ -52,6 +53,8 @@ interface ChartProps {
 
 export function Chart({ title, options, series, min, max }: ChartProps): ReactNode {
   const colorScheme = useActualColorScheme();
+  const selectedTimestamp = useStore(state => state.selectedTimestamp);
+  const setSelectedTimestamp = useStore(state => state.setSelectedTimestamp);
 
   const fullOptions = useMemo((): Highcharts.Options => {
     const themeOptions = colorScheme === 'light' ? {} : getThemeOptions(HighchartsHighContrastDarkTheme);
@@ -100,6 +103,15 @@ export function Chart({ title, options, series, min, max }: ChartProps): ReactNo
       },
       plotOptions: {
         series: {
+          point: {
+            events: {
+              click(this: Highcharts.Point) {
+                if (typeof this.x === 'number') {
+                  setSelectedTimestamp(this.x);
+                }
+              },
+            },
+          },
           dataGrouping: {
             approximation(this: any, values: number[]): number {
               const endIndex = this.dataGroupInfo.start + this.dataGroupInfo.length;
@@ -121,6 +133,18 @@ export function Chart({ title, options, series, min, max }: ChartProps): ReactNo
         title: {
           text: 'Timestamp',
         },
+        plotLines:
+          selectedTimestamp === null
+            ? []
+            : [
+                {
+                  value: selectedTimestamp,
+                  color: '#d9480f',
+                  width: 1,
+                  zIndex: 5,
+                  dashStyle: 'Dash',
+                },
+              ],
         crosshair: {
           width: 1,
         },
@@ -156,7 +180,7 @@ export function Chart({ title, options, series, min, max }: ChartProps): ReactNo
     };
 
     return merge(themeOptions, chartOptions);
-  }, [colorScheme, title, options, series, min, max]);
+  }, [colorScheme, title, options, series, min, max, selectedTimestamp, setSelectedTimestamp]);
 
   return (
     <VisualizerCard p={0}>

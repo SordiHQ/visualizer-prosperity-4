@@ -1,25 +1,83 @@
 import { Slider, SliderProps, Text } from '@mantine/core';
 import { useHotkeys } from '@mantine/hooks';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useMemo } from 'react';
 import { AlgorithmDataRow } from '../../models.ts';
 import { useStore } from '../../store.ts';
 import { formatNumber } from '../../utils/format.ts';
 import { TimestampDetail } from './TimestampDetail.tsx';
 import { VisualizerCard } from './VisualizerCard.tsx';
 
+function findClosestTimestamp(timestamps: number[], target: number): number {
+  if (timestamps.length === 0) {
+    return target;
+  }
+
+  let left = 0;
+  let right = timestamps.length - 1;
+
+  while (left <= right) {
+    const middle = Math.floor((left + right) / 2);
+    const value = timestamps[middle];
+
+    if (value === target) {
+      return value;
+    }
+
+    if (value < target) {
+      left = middle + 1;
+    } else {
+      right = middle - 1;
+    }
+  }
+
+  if (left >= timestamps.length) {
+    return timestamps[timestamps.length - 1];
+  }
+
+  if (right < 0) {
+    return timestamps[0];
+  }
+
+  return target - timestamps[right] <= timestamps[left] - target ? timestamps[right] : timestamps[left];
+}
+
 export function TimestampsCard(): ReactNode {
   const algorithm = useStore(state => state.algorithm)!;
+  const selectedTimestamp = useStore(state => state.selectedTimestamp);
+  const setSelectedTimestamp = useStore(state => state.setSelectedTimestamp);
 
-  const rowsByTimestamp: Record<number, AlgorithmDataRow> = {};
-  for (const row of algorithm.data) {
-    rowsByTimestamp[row.state.timestamp] = row;
-  }
+  const rowsByTimestamp = useMemo((): Record<number, AlgorithmDataRow> => {
+    const rowsByTimestamp: Record<number, AlgorithmDataRow> = {};
+    for (const row of algorithm.data) {
+      rowsByTimestamp[row.state.timestamp] = row;
+    }
+    return rowsByTimestamp;
+  }, [algorithm.data]);
 
   const timestampMin = algorithm.data[0].state.timestamp;
   const timestampMax = algorithm.data[algorithm.data.length - 1].state.timestamp;
   const timestampStep = algorithm.data[1].state.timestamp - algorithm.data[0].state.timestamp;
+  const timestamps = useMemo(() => algorithm.data.map(row => row.state.timestamp), [algorithm.data]);
 
-  const [timestamp, setTimestamp] = useState(timestampMin);
+  const effectiveTimestamp = useMemo(() => {
+    if (selectedTimestamp === null) {
+      return timestampMin;
+    }
+
+    if (rowsByTimestamp[selectedTimestamp] !== undefined) {
+      return selectedTimestamp;
+    }
+
+    return findClosestTimestamp(timestamps, selectedTimestamp);
+  }, [selectedTimestamp, timestampMin, rowsByTimestamp, timestamps]);
+
+  useEffect(() => {
+    if (selectedTimestamp === null) {
+      setSelectedTimestamp(timestampMin);
+    } else if (selectedTimestamp !== effectiveTimestamp) {
+      setSelectedTimestamp(effectiveTimestamp);
+    }
+  }, [selectedTimestamp, effectiveTimestamp, timestampMin, setSelectedTimestamp]);
 
   const marks: SliderProps['marks'] = [];
   for (let i = timestampMin; i < timestampMax; i += (timestampMax + 100) / 4) {
@@ -30,8 +88,14 @@ export function TimestampsCard(): ReactNode {
   }
 
   useHotkeys([
-    ['ArrowLeft', () => setTimestamp(timestamp === timestampMin ? timestamp : timestamp - timestampStep)],
-    ['ArrowRight', () => setTimestamp(timestamp === timestampMax ? timestamp : timestamp + timestampStep)],
+    [
+      'ArrowLeft',
+      () => setSelectedTimestamp(effectiveTimestamp === timestampMin ? effectiveTimestamp : effectiveTimestamp - timestampStep),
+    ],
+    [
+      'ArrowRight',
+      () => setSelectedTimestamp(effectiveTimestamp === timestampMax ? effectiveTimestamp : effectiveTimestamp + timestampStep),
+    ],
   ]);
 
   return (
@@ -42,15 +106,15 @@ export function TimestampsCard(): ReactNode {
         step={timestampStep}
         marks={marks}
         label={value => `Timestamp ${formatNumber(value)}`}
-        value={timestamp}
-        onChange={setTimestamp}
+        value={effectiveTimestamp}
+        onChange={setSelectedTimestamp}
         mb="lg"
       />
 
-      {rowsByTimestamp[timestamp] ? (
-        <TimestampDetail row={rowsByTimestamp[timestamp]} />
+      {rowsByTimestamp[effectiveTimestamp] ? (
+        <TimestampDetail row={rowsByTimestamp[effectiveTimestamp]} />
       ) : (
-        <Text>No logs found for timestamp {formatNumber(timestamp)}</Text>
+        <Text>No logs found for timestamp {formatNumber(effectiveTimestamp)}</Text>
       )}
     </VisualizerCard>
   );
