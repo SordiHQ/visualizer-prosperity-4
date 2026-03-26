@@ -39,7 +39,7 @@ const router = createBrowserRouter(
     </Route>,
   ),
   {
-    basename: '/imc-prosperity-3-visualizer/',
+    basename: '/visualizer-prosperity-4/',
   },
 );
 

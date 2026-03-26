@@ -38,6 +38,7 @@ export function LoadFromProsperity(): ReactNode {
   const round = useStore(state => state.round);
   const setRound = useStore(state => state.setRound);
 
+  // TODO: modifica se vogliamo usare Load From Prosperity
   const [proxy, setProxy] = useState('https://imc-prosperity-3-visualizer-cors-anywhere.jmerle.dev/');
 
   const loadAlgorithms = useAsync<AlgorithmSummary[]>(async (): Promise<AlgorithmSummary[]> => {

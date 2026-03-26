@@ -1,6 +1,7 @@
-# IMC Prosperity 3 Visualizer
+# IMC Prosperity 4 Visualizer
 
-[![Build Status](https://github.com/jmerle/imc-prosperity-3-visualizer/workflows/Build/badge.svg)](https://github.com/jmerle/imc-prosperity-3-visualizer/actions/workflows/build.yml)
+[![Build Status](https://github.com/sordihq/visualizer-prosperity-4/workflows/Build/badge.svg)](https://github.com/sordihq/visualizer-prosperity-4/actions/workflows/build.yml)
 
-This repository contains the source code behind [jmerle.github.io/imc-prosperity-3-visualizer/](https://jmerle.github.io/imc-prosperity-3-visualizer/), a visualizer for [IMC Prosperity 3](https://prosperity.imc.com/) algorithms. It is based on my visualizers for Prosperity [1](https://github.com/jmerle/imc-prosperity-visualizer) and [2](https://github.com/jmerle/imc-prosperity-2-visualizer).
-# visualizer-prosperity-4
+This repository contains the source code for [sordihq.github.io/visualizer-prosperity-4/](https://sordihq.github.io/visualizer-prosperity-4/), a visualizer for [IMC Prosperity 4](https://prosperity.imc.com/) algorithms.
+
+This repository is forked from [jmerle/imc-prosperity-3-visualizer](https://github.com/jmerle/imc-prosperity-3-visualizer). Huge thanks to [@jmerle](https://github.com/jmerle) for creating and open-sourcing the original visualizer.
