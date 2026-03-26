@@ -90,11 +90,17 @@ export function TimestampsCard(): ReactNode {
   useHotkeys([
     [
       'ArrowLeft',
-      () => setSelectedTimestamp(effectiveTimestamp === timestampMin ? effectiveTimestamp : effectiveTimestamp - timestampStep),
+      () =>
+        setSelectedTimestamp(
+          effectiveTimestamp === timestampMin ? effectiveTimestamp : effectiveTimestamp - timestampStep,
+        ),
     ],
     [
       'ArrowRight',
-      () => setSelectedTimestamp(effectiveTimestamp === timestampMax ? effectiveTimestamp : effectiveTimestamp + timestampStep),
+      () =>
+        setSelectedTimestamp(
+          effectiveTimestamp === timestampMax ? effectiveTimestamp : effectiveTimestamp + timestampStep,
+        ),
     ],
   ]);
 
