@@ -124,7 +124,6 @@ export function TimestampsCard(): ReactNode {
 
   return (
     <VisualizerCard title="Timestamps">
-      
       <Group justify="space-between" align="center" mb="xs">
         <Group gap="xs" align="center">
           <Text size="xs" c="dimmed">
@@ -154,14 +153,11 @@ export function TimestampsCard(): ReactNode {
               placeholder="e.g. 3"
             />
           )}
-        <Tooltip label="Use ← → on your keyboard to move the current selected timestamp by the selected multiplier (10x moves the timestamp by 10 timesteps)">
-            <ActionIcon
-              variant="subtle"
-              color="gray"
-              size="sm"
-              radius="xl"
-              aria-label="Show timestamp hotkeys help"
-            >
+          <Tooltip
+            label="Use ← → on your keyboard to move the current 
+          selected timestamp by the selected multiplier (10x moves the timestamp by 10 timesteps)"
+          >
+            <ActionIcon variant="subtle" color="gray" size="sm" radius="xl" aria-label="Show timestamp hotkeys help">
               ?
             </ActionIcon>
           </Tooltip>
