@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "pnpm run \"/^lint:.*/\"",
     "lint:eslint": "eslint --format codeframe '**/*.ts' '**/*.tsx'",
     "lint:prettier": "prettier --check '**/*.{ts,tsx,cjs,css,html,json,yml}'",
@@ -49,7 +51,8 @@
     "prettier": "^3.5.2",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.25.0",
-    "vite": "^6.1.1"
+    "vite": "^6.1.1",
+    "vitest": "^4.1.2"
   },
   "prettier": {
     "printWidth": 120,

@@ -24,6 +24,27 @@ export type Position = number;
 export type UserId = string;
 export type ObservationValue = number;
 
+export interface AlgoLogs {
+  sandboxLog?: string;
+  lambdaLog?: string;
+  timestamp?: number;
+}
+
+export interface ParsedJsonLogs {
+  submissionId?: string;
+  activitiesLog: string;
+  logs?: Array<AlgoLogs>;
+  tradeHistory?: Array<{
+    timestamp: number;
+    buyer: string;
+    seller: string;
+    symbol: string;
+    currency: string;
+    price: number;
+    quantity: number;
+  }>;
+}
+
 export interface ActivityLogRow {
   day: number;
   timestamp: number;
