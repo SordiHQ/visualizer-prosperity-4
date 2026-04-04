@@ -126,6 +126,7 @@ export interface Algorithm {
   summary?: AlgorithmSummary;
   activityLogs: ActivityLogRow[];
   data: AlgorithmDataRow[];
+  warnings?: string[];
 }
 
 export type CompressedListing = [symbol: ProsperitySymbol, product: Product, denomination: Product | number];
