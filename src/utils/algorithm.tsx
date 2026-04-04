@@ -82,7 +82,7 @@ function decompressListings(compressed: CompressedListing[]): Record<ProsperityS
     listings[symbol] = {
       symbol,
       product,
-      denomination,
+      denomination: typeof denomination === 'string' ? denomination : denomination.toString(),
     };
   }
 
