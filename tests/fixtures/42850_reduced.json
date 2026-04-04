@@ -1,0 +1,549 @@
+{
+  "submissionId": "01ba07a6-89b2-47cb-842e-1e47cb5b0928",
+  "activitiesLog": "day;timestamp;product;bid_price_1;bid_volume_1;bid_price_2;bid_volume_2;bid_price_3;bid_volume_3;ask_price_1;ask_volume_1;ask_price_2;ask_volume_2;ask_price_3;ask_volume_3;mid_price;profit_and_loss\n-1;0;TOMATOES;4999;6;4998;19;;;5013;6;5014;19;;;5006.0;0.0\n-1;0;EMERALDS;9992;15;9990;30;;;10008;15;10010;30;;;10000.0;0.0\n-1;100;EMERALDS;9992;13;9990;30;;;10008;13;10010;30;;;10000.0;0.0\n-1;100;TOMATOES;5000;5;4998;23;;;5013;5;5014;23;;;5006.5;0.0\n-1;200;EMERALDS;9992;13;9990;21;;;10008;13;10010;21;;;10000.0;0.0\n-1;200;TOMATOES;5000;10;4999;20;;;5013;10;5015;20;;;5006.5;0.0\n-1;300;TOMATOES;5000;9;4999;24;;;5014;9;5015;24;;;5007.0;0.0\n-1;300;EMERALDS;9992;11;9990;23;;;10008;11;10010;23;;;10000.0;0.0\n-1;400;TOMATOES;5000;6;4999;25;;;5014;6;5015;25;;;5007.0;0.0\n-1;400;EMERALDS;9992;13;9990;23;;;10008;13;10010;23;;;10000.0;0.0\n-1;500;EMERALDS;9992;12;9990;22;;;10008;12;10010;22;;;10000.0;0.0\n-1;500;TOMATOES;5000;6;4999;25;;;5014;6;5015;25;;;5007.0;0.0\n-1;600;EMERALDS;9992;12;9990;24;;;10008;12;10010;24;;;10000.0;0.0\n-1;600;TOMATOES;5000;9;4999;17;;;5014;9;5015;17;;;5007.0;0.0\n-1;700;TOMATOES;5000;5;4999;24;;;5014;5;5015;24;;;5007.0;0.0\n-1;700;EMERALDS;9992;10;9990;27;;;10008;10;10010;27;;;10000.0;0.0\n-1;800;TOMATOES;5000;5;4998;25;;;5013;5;5014;25;;;5006.5;0.0\n-1;800;EMERALDS;9992;11;9990;26;;;10008;11;10010;26;;;10000.0;0.0\n-1;900;EMERALDS;9992;11;9990;27;;;10008;11;10010;27;;;10000.0;0.0\n-1;900;TOMATOES;5000;9;4998;15;;;5013;9;5015;15;;;5006.5;0.0\n-1;1000;EMERALDS;9992;12;9990;26;;;10008;12;10010;26;;;10000.0;0.0\n-1;1000;TOMATOES;5000;7;4999;17;;;5014;7;5015;17;;;5007.0;0.0\n-1;1100;TOMATOES;5000;7;4999;15;;;5013;7;5015;15;;;5006.5;0.0\n-1;1100;EMERALDS;9992;13;9990;23;;;10008;13;10010;23;;;10000.0;0.0\n-1;1200;TOMATOES;5000;5;4999;21;;;5014;5;5015;21;;;5007.0;0.0\n-1;1200;EMERALDS;10000;10;9992;14;9990;28;10008;14;10010;28;;;10004.0;0.0\n-1;1300;EMERALDS;9992;11;9990;27;;;10008;11;10010;27;;;10000.0;0.0\n-1;1300;TOMATOES;5001;10;5000;21;;;5014;10;5016;21;;;5007.5;0.0\n-1;1400;EMERALDS;9992;12;9990;24;;;10008;12;10010;24;;;10000.0;0.0\n-1;1400;TOMATOES;5000;7;4999;19;;;5014;7;5015;19;;;5007.0;0.0\n-1;1500;TOMATOES;5000;5;4999;21;;;5014;5;5015;21;;;5007.0;0.0\n-1;1500;EMERALDS;9992;14;9990;20;;;10008;14;10010;20;;;10000.0;0.0\n-1;1600;TOMATOES;5001;7;4999;24;;;5014;7;5015;24;;;5007.5;0.0\n-1;1600;EMERALDS;9992;12;9990;22;;;10008;12;10010;22;;;10000.0;0.0\n-1;1700;EMERALDS;9992;11;9990;27;;;10008;11;10010;27;;;10000.0;0.0\n-1;1700;TOMATOES;5000;10;4999;16;;;5014;10;5015;16;;;5007.0;0.0\n-1;1800;EMERALDS;9992;11;9990;25;;;10008;11;10010;25;;;10000.0;0.0\n-1;1800;TOMATOES;5000;10;4998;15;;;5013;10;5014;15;;;5006.5;0.0\n-1;1900;TOMATOES;5000;9;4999;23;;;5013;9;5015;23;;;5006.5;0.0\n-1;1900;EMERALDS;9992;14;9990;29;;;10008;14;10010;29;;;10000.0;0.0\n-1;2000;TOMATOES;4999;10;4998;25;;;5013;10;5014;25;;;5006.0;0.0\n-1;2000;EMERALDS;9992;10;9990;25;;;10008;10;10010;25;;;10000.0;0.0\n-1;2100;EMERALDS;9992;13;9990;23;;;10008;13;10010;23;;;10000.0;0.0\n-1;2100;TOMATOES;4999;8;4997;23;;;5012;8;5013;23;;;5005.5;0.0\n-1;2200;EMERALDS;9992;15;9990;30;;;10008;15;10010;30;;;10000.0;0.0\n-1;2200;TOMATOES;4997;6;4996;16;;;5011;6;5012;16;;;5004.0;0.0\n-1;2300;TOMATOES;4997;6;4995;22;;;5010;6;5011;22;;;5003.5;0.0\n-1;2300;EMERALDS;9992;11;9990;22;;;10008;11;10010;22;;;10000.0;0.0\n-1;2400;TOMATOES;4996;7;4995;20;;;5010;7;5011;20;;;5003.0;0.0\n-1;2400;EMERALDS;9992;13;9990;23;;;10008;13;10010;23;;;10000.0;0.0\n-1;2500;EMERALDS;9992;10;9990;20;;;10008;10;10010;20;;;10000.0;0.0\n-1;2500;TOMATOES;4996;7;4995;16;;;5009;7;5011;16;;;5002.5;0.0\n-1;2600;EMERALDS;9992;10;9990;25;;;10008;10;10010;25;;;10000.0;0.0\n-1;2600;TOMATOES;4996;9;4995;21;;;5009;9;5011;21;;;5002.5;0.0\n-1;2700;TOMATOES;4997;10;4995;21;;;5010;10;5011;21;;;5003.5;0.0\n-1;2700;EMERALDS;9992;10;9990;24;;;10008;10;10010;24;;;10000.0;0.0\n-1;2800;TOMATOES;4997;5;4996;24;;;5011;5;5012;24;;;5004.0;0.0\n-1;2800;EMERALDS;9992;10;9990;29;;;10008;10;10010;29;;;10000.0;0.0\n-1;2900;EMERALDS;9992;12;9990;23;;;10008;12;10010;23;;;10000.0;0.0\n-1;2900;TOMATOES;4997;7;4996;19;;;5011;7;5012;19;;;5004.0;0.0\n-1;3000;EMERALDS;9992;10;9990;29;;;10008;10;10010;29;;;10000.0;0.0\n-1;3000;TOMATOES;4996;7;4995;18;;;5010;7;5011;18;;;5003.0;15.580078125\n-1;3100;TOMATOES;4996;8;4995;18;;;5010;8;5011;18;;;5003.0;15.2900390625\n-1;3100;EMERALDS;9992;14;9990;26;;;10008;14;10010;26;;;10000.0;0.0\n-1;3200;TOMATOES;4996;7;4995;21;;;5009;7;5011;21;;;5002.5;13.7734375\n-1;3200;EMERALDS;9992;11;9990;30;;;10008;11;10010;30;;;10000.0;0.0\n-1;3300;EMERALDS;9992;15;9990;26;;;10008;15;10010;26;;;10000.0;0.0\n-1;3300;TOMATOES;4996;5;4995;22;;;5010;5;5011;22;;;5003.0;14.8798828125\n-1;3400;EMERALDS;9992;12;9990;27;;;10008;12;10010;27;;;10000.0;0.0\n-1;3400;TOMATOES;4996;7;4994;19;;;5009;7;5011;19;;;5002.5;29.98828125\n-1;3500;TOMATOES;4995;7;4993;16;;;5008;7;5009;16;;;5001.5;22.634765625\n-1;3500;EMERALDS;9992;10;9990;28;;;10008;10;10010;28;;;10000.0;0.0\n-1;3600;TOMATOES;4995;7;4993;16;;;5008;7;5009;16;;;5001.5;23.765625\n-1;3600;EMERALDS;9992;13;9990;21;;;10008;13;10010;21;;;10000.0;0.0\n-1;3700;EMERALDS;9992;12;9990;29;;;10008;12;10010;29;;;10000.0;0.0\n-1;3700;TOMATOES;4995;7;4994;23;;;5002;5;5008;7;5010;23;4998.5;24.5859375\n-1;3800;EMERALDS;9992;14;9990;29;;;10008;14;10010;29;;;10000.0;0.0\n-1;3800;TOMATOES;4994;7;4993;20;;;5008;7;5009;20;;;5001.0;21.87890625\n-1;3900;TOMATOES;5002;8;4995;5;4994;16;5009;5;5010;16;;;5005.5;25.58203125\n-1;3900;EMERALDS;9992;15;9990;25;;;10008;15;10010;25;;;10000.0;0.0\n-1;4000;EMERALDS;9992;12;9990;27;;;10008;12;10010;27;;;10000.0;0.0\n-1;4000;TOMATOES;4996;8;4994;22;;;5009;8;5010;22;;;5002.5;28.8359375\n-1;4100;TOMATOES;4996;6;4994;19;;;5009;6;5010;19;;;5002.5;29.91015625\n-1;4100;EMERALDS;9992;14;9990;23;;;10008;14;10010;23;;;10000.0;0.0\n-1;4200;EMERALDS;9992;13;9990;26;;;10008;13;10010;26;;;10000.0;0.0\n-1;4200;TOMATOES;4996;8;4994;15;;;5001;7;5009;8;5010;15;4998.5;28.85546875\n-1;4300;TOMATOES;4995;10;4994;20;;;5008;10;5010;20;;;5001.5;24.3046875\n-1;4300;EMERALDS;9992;13;9990;29;;;10008;13;10010;29;;;10000.0;0.0\n-1;4400;EMERALDS;9992;15;9990;26;;;10008;15;10010;26;;;10000.0;0.0\n-1;4400;TOMATOES;4995;8;4994;15;;;5008;8;5010;15;;;5001.5;24.9375\n-1;4500;TOMATOES;4995;9;4994;17;;;5009;9;5010;17;;;5002.0;25.857421875\n-1;4500;EMERALDS;9992;10;9990;27;;;10008;10;10010;27;;;10000.0;0.0\n-1;4600;EMERALDS;9992;13;9990;21;;;10008;13;10010;21;;;10000.0;0.0\n-1;4600;TOMATOES;4995;7;4994;17;;;5009;7;5010;17;;;5002.0;26.03515625\n-1;4700;TOMATOES;4995;10;4994;17;;;5009;10;5010;17;;;5002.0;25.98046875\n-1;4700;EMERALDS;9992;10;9990;26;;;10008;10;10010;26;;;10000.0;0.0\n-1;4800;EMERALDS;9992;13;9990;24;;;10008;13;10010;24;;;10000.0;0.0\n-1;4800;TOMATOES;4995;7;4994;21;;;5009;7;5010;21;;;5002.0;26.125\n-1;4900;TOMATOES;4995;10;4994;16;;;5009;10;5010;16;;;5002.0;26.513671875\n-1;4900;EMERALDS;9992;14;9990;22;;;10008;14;10010;22;;;10000.0;0.0\n-1;5000;EMERALDS;9992;14;9990;22;;;10008;14;10010;22;;;10000.0;0.0\n-1;5000;TOMATOES;4996;8;4995;21;;;5009;8;5011;21;;;5002.5;31.0\n-1;5100;TOMATOES;4996;5;4994;18;;;5009;5;5010;18;;;5002.5;28.86328125\n-1;5100;EMERALDS;9992;12;9990;25;;;10000;10;10008;12;10010;25;9996.0;0.0\n-1;5200;EMERALDS;9992;14;9990;22;;;10008;14;10010;22;;;10000.0;0.0\n-1;5200;TOMATOES;4996;9;4994;24;;;5009;9;5010;24;;;5002.5;29.150390625\n-1;5300;TOMATOES;4996;5;4995;18;;;5009;5;5011;18;;;5002.5;30.41015625\n-1;5300;EMERALDS;9992;10;9990;25;;;10008;10;10010;25;;;10000.0;0.0\n-1;5400;EMERALDS;9992;12;9990;27;;;10008;12;10010;27;;;10000.0;0.0\n-1;5400;TOMATOES;4996;10;4995;18;;;5003;6;5009;10;5011;18;4999.5;30.25\n-1;5500;TOMATOES;4996;8;4994;23;;;5009;8;5010;23;;;5002.5;28.6796875\n-1;5500;EMERALDS;9992;10;9990;29;;;10008;10;10010;29;;;10000.0;0.0\n-1;5600;EMERALDS;9992;10;9990;26;;;10008;10;10010;26;;;10000.0;0.0\n-1;5600;TOMATOES;4996;7;4995;24;;;5009;7;5011;24;;;5002.5;31.30078125\n-1;5700;TOMATOES;4995;6;4994;16;;;5009;6;5010;16;;;5002.0;27.33984375\n-1;5700;EMERALDS;9992;11;9990;23;;;10008;11;10010;23;;;10000.0;0.0\n-1;5800;EMERALDS;9992;13;9990;24;;;10008;13;10010;24;;;10000.0;0.0\n-1;5800;TOMATOES;4995;7;4993;21;;;5008;7;5009;21;;;5001.5;23.046875\n-1;5900;TOMATOES;5000;5;4995;10;4994;20;5008;10;5010;20;;;5004.0;25.259765625\n-1;5900;EMERALDS;9992;12;9990;20;;;10008;12;10010;20;;;10000.0;0.0\n-1;6000;EMERALDS;9992;12;9990;22;;;10008;12;10010;22;;;10000.0;56.0\n-1;6000;TOMATOES;4995;5;4994;19;;;5009;5;5010;19;;;5002.0;26.431640625\n-1;6100;TOMATOES;4995;6;4994;21;;;5003;5;5009;6;5010;21;4999.0;28.22265625\n-1;6100;EMERALDS;9992;11;9990;24;;;10008;11;10010;24;;;10000.0;56.0\n-1;6200;TOMATOES;4996;5;4994;19;;;5009;5;5010;19;;;5002.5;28.8359375\n-1;6200;EMERALDS;9992;13;9990;29;;;10008;13;10010;29;;;10000.0;56.0\n-1;6300;EMERALDS;9992;12;9990;25;;;10008;12;10010;25;;;10000.0;56.0\n-1;6300;TOMATOES;4995;9;4994;25;;;5009;9;5010;25;;;5002.0;27.12890625\n-1;6400;EMERALDS;9992;11;9990;23;;;10008;11;10010;23;;;10000.0;56.0\n-1;6400;TOMATOES;5001;4;4995;10;4994;24;5009;10;5010;24;;;5005.0;27.7265625\n-1;6500;TOMATOES;4995;9;4994;25;;;5009;9;5010;25;;;5002.0;25.541015625\n-1;6500;EMERALDS;9992;10;9990;20;;;10008;10;10010;20;;;10000.0;56.0\n-1;6600;TOMATOES;4996;7;4994;20;;;5009;7;5010;20;;;5002.5;28.974609375\n-1;6600;EMERALDS;9992;12;9990;26;;;10008;12;10010;26;;;10000.0;56.0\n-1;6700;EMERALDS;9992;10;9990;26;;;10008;10;10010;26;;;10000.0;56.0\n-1;6700;TOMATOES;4996;10;4995;24;;;5009;10;5011;24;;;5002.5;30.62109375\n-1;6800;EMERALDS;9992;10;9990;23;;;10008;10;10010;23;;;10000.0;56.0\n-1;6800;TOMATOES;4997;9;4996;18;;;5010;9;5012;18;;;5003.5;36.30859375\n-1;6900;TOMATOES;4996;10;4995;18;;;5010;10;5011;18;;;5003.0;33.05859375\n-1;6900;EMERALDS;9992;12;9990;28;;;10008;12;10010;28;;;10000.0;56.0\n-1;7000;TOMATOES;5002;6;4997;8;4996;21;5010;8;5012;21;;;5006.0;37.203125\n-1;7000;EMERALDS;9992;11;9990;27;;;10008;11;10010;27;;;10000.0;56.0\n-1;7100;EMERALDS;9992;15;9990;29;;;10008;15;10010;29;;;10000.0;56.0\n-1;7100;TOMATOES;4998;10;4996;24;;;5011;10;5012;24;;;5004.5;41.79296875\n-1;7200;EMERALDS;9992;13;9990;21;;;10008;13;10010;21;;;10000.0;56.0\n-1;7200;TOMATOES;4997;10;4996;19;;;5011;10;5012;19;;;5004.0;40.36328125\n-1;7300;TOMATOES;4997;7;4996;21;;;5011;7;5012;21;;;5004.0;39.6484375\n-1;7300;EMERALDS;9992;15;9990;23;;;10008;15;10010;23;;;10000.0;56.0\n-1;7400;TOMATOES;4997;9;4996;23;;;5011;9;5012;23;;;5004.0;39.328125\n-1;7400;EMERALDS;9992;14;9990;28;;;10008;14;10010;28;;;10000.0;56.0\n-1;7500;EMERALDS;9992;15;9990;29;;;10008;15;10010;29;;;10000.0;56.0\n-1;7500;TOMATOES;4998;9;4997;16;;;5011;9;5013;16;;;5004.5;42.8046875\n-1;7600;EMERALDS;9992;12;9990;24;;;10008;12;10010;24;;;10000.0;56.0\n-1;7600;TOMATOES;4998;7;4997;23;;;5012;7;5013;23;;;5005.0;45.875\n-1;7700;TOMATOES;4998;10;4997;17;;;5012;10;5013;17;;;5005.0;43.916015625\n-1;7700;EMERALDS;9992;13;9990;28;;;10008;13;10010;28;;;10000.0;56.0\n-1;7800;TOMATOES;4998;9;4997;18;;;5011;9;5013;18;;;5004.5;43.328125\n-1;7800;EMERALDS;9992;12;9990;22;;;10008;12;10010;22;;;10000.0;56.0\n-1;7900;EMERALDS;9992;15;9990;25;;;10008;15;10010;25;;;10000.0;56.0\n-1;7900;TOMATOES;4999;8;4997;16;;;5012;8;5013;16;;;5005.5;47.1640625\n-1;8000;EMERALDS;9992;13;9990;22;;;10008;13;10010;22;;;10000.0;56.0\n-1;8000;TOMATOES;4999;7;4997;25;;;5012;7;5013;25;;;5005.5;47.06640625\n-1;8100;TOMATOES;4999;10;4998;15;;;5013;10;5014;15;;;5006.0;51.23828125\n-1;8100;EMERALDS;9992;14;9990;22;;;10008;14;10010;22;;;10000.0;56.0\n-1;8200;TOMATOES;4999;6;4998;17;;;5013;6;5014;17;;;5006.0;50.45703125\n-1;8200;EMERALDS;9992;13;9990;20;;;10008;13;10010;20;;;10000.0;56.0\n-1;8300;EMERALDS;9992;11;9990;26;;;10008;11;10010;26;;;10000.0;56.0\n-1;8300;TOMATOES;4999;7;4998;24;;;5013;7;5014;24;;;5006.0;52.5390625\n-1;8400;EMERALDS;10000;5;9992;11;9990;26;10008;11;10010;26;;;10004.0;56.0\n-1;8400;TOMATOES;5000;9;4999;23;;;5014;9;5015;23;;;5007.0;58.09375\n-1;8500;TOMATOES;5000;8;4999;23;;;5014;8;5015;23;;;5007.0;58.01953125\n-1;8500;EMERALDS;9992;15;9990;30;;;10008;15;10010;30;;;10000.0;56.0\n-1;8600;TOMATOES;5000;10;4999;16;;;5014;10;5015;16;;;5007.0;56.677734375\n-1;8600;EMERALDS;9992;15;9990;22;;;10008;15;10010;22;;;10000.0;56.0\n-1;8700;EMERALDS;9992;10;9990;29;;;10008;10;10010;29;;;10000.0;56.0\n-1;8700;TOMATOES;5001;8;5000;21;;;5014;8;5016;21;;;5007.5;60.193359375\n-1;8800;EMERALDS;9992;15;9990;23;;;10008;15;10010;23;;;10000.0;56.0\n-1;8800;TOMATOES;5001;5;4999;17;;;5014;5;5015;17;;;5007.5;59.78125\n-1;8900;TOMATOES;5000;5;4999;16;;;5014;5;5015;16;;;5007.0;57.96875\n-1;8900;EMERALDS;9992;11;9990;26;;;10008;11;10010;26;;;10000.0;56.0\n-1;9000;TOMATOES;5000;6;4999;17;;;5014;6;5015;17;;;5007.0;58.212890625\n-1;9000;EMERALDS;9992;13;9990;23;;;10008;13;10010;23;;;10000.0;56.0\n-1;9100;EMERALDS;9992;13;9990;30;;;10000;7;10008;13;10010;30;9996.0;56.0\n-1;9100;TOMATOES;5000;6;4999;25;;;5013;6;5015;25;;;5006.5;54.28125\n-1;9200;EMERALDS;9992;11;9990;24;;;10008;11;10010;24;;;10000.0;56.0\n-1;9200;TOMATOES;5000;8;4999;19;;;5014;8;5015;19;;;5007.0;56.56640625\n-1;9300;TOMATOES;5000;6;4999;15;;;5014;6;5015;15;;;5007.0;56.466796875\n-1;9300;EMERALDS;9992;10;9990;23;;;10008;10;10010;23;;;10000.0;56.0\n-1;9400;TOMATOES;5000;9;4999;17;;;5013;9;5015;17;;;5006.5;55.3984375\n-1;9400;EMERALDS;9992;12;9990;22;;;10008;12;10010;22;;;10000.0;56.0\n-1;9500;EMERALDS;9992;12;9990;28;;;10008;12;10010;28;;;10000.0;56.0\n-1;9500;TOMATOES;5000;6;4999;15;;;5013;6;5015;15;;;5006.5;55.072265625\n-1;9600;EMERALDS;9992;15;9990;20;;;10008;15;10010;20;;;10000.0;56.0\n-1;9600;TOMATOES;4999;10;4998;21;;;5013;10;5014;21;;;5006.0;50.46484375\n-1;9700;TOMATOES;5000;5;4998;15;;;5013;5;5014;15;;;5006.5;52.5625\n-1;9700;EMERALDS;9992;11;9990;25;;;10008;11;10010;25;;;10000.0;56.0\n-1;9800;TOMATOES;5000;7;4999;18;;;5013;7;5015;18;;;5006.5;54.84375\n-1;9800;EMERALDS;9992;10;9990;21;;;10008;10;10010;21;;;10000.0;98.0\n-1;9900;EMERALDS;9992;13;9990;22;;;10008;13;10010;22;;;10000.0;98.0\n-1;9900;TOMATOES;5000;9;4999;18;;;5013;9;5015;18;;;5006.5;54.96484375\n-1;10000;EMERALDS;9992;10;9990;29;;;10008;10;10010;29;;;10000.0;98.0\n-1;10000;TOMATOES;5000;9;4998;18;;;5013;9;5014;18;;;5006.5;53.88671875\n",
+  "logs": [
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[0,\"\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":30},{\"10008\":-15,\"10010\":-30}],\"TOMATOES\":[{\"4999\":6,\"4998\":19},{\"5013\":-6,\"5014\":-19}]},[],[],{},[{},{}]],[[\"TOMATOES\",5000,80],[\"TOMATOES\",5012,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: \\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5000, volume=80\\nORDER --> SELL: product=TOMATOES, price=5012, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 0
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":30},{\"10008\":-13,\"10010\":-30}],\"TOMATOES\":[{\"5000\":5,\"4998\":23},{\"5013\":-5,\"5014\":-23}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5012,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5012, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":21},{\"10008\":-13,\"10010\":-21}],\"TOMATOES\":[{\"5000\":10,\"4999\":20},{\"5013\":-10,\"5015\":-20}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5012,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5012, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":23},{\"10008\":-11,\"10010\":-23}],\"TOMATOES\":[{\"5000\":9,\"4999\":24},{\"5014\":-9,\"5015\":-24}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":23},{\"10008\":-13,\"10010\":-23}],\"TOMATOES\":[{\"5000\":6,\"4999\":25},{\"5014\":-6,\"5015\":-25}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":22},{\"10008\":-12,\"10010\":-22}],\"TOMATOES\":[{\"5000\":6,\"4999\":25},{\"5014\":-6,\"5015\":-25}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":24},{\"10008\":-12,\"10010\":-24}],\"TOMATOES\":[{\"5000\":9,\"4999\":17},{\"5014\":-9,\"5015\":-17}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":27},{\"10008\":-10,\"10010\":-27}],\"TOMATOES\":[{\"5000\":5,\"4999\":24},{\"5014\":-5,\"5015\":-24}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":26},{\"10008\":-11,\"10010\":-26}],\"TOMATOES\":[{\"5000\":5,\"4998\":25},{\"5013\":-5,\"5014\":-25}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5012,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5012, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":27},{\"10008\":-11,\"10010\":-27}],\"TOMATOES\":[{\"5000\":9,\"4998\":15},{\"5013\":-9,\"5015\":-15}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5012,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5012, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":26},{\"10008\":-12,\"10010\":-26}],\"TOMATOES\":[{\"5000\":7,\"4999\":17},{\"5014\":-7,\"5015\":-17}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1000
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":23},{\"10008\":-13,\"10010\":-23}],\"TOMATOES\":[{\"5000\":7,\"4999\":15},{\"5013\":-7,\"5015\":-15}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5012,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5012, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"10000\":10,\"9992\":14,\"9990\":28},{\"10008\":-14,\"10010\":-28}],\"TOMATOES\":[{\"5000\":5,\"4999\":21},{\"5014\":-5,\"5015\":-21}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",10001,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=10001, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":27},{\"10008\":-11,\"10010\":-27}],\"TOMATOES\":[{\"5001\":10,\"5000\":21},{\"5014\":-10,\"5016\":-21}]},[],[],{},[{},{}]],[[\"TOMATOES\",5002,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5002, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":24},{\"10008\":-12,\"10010\":-24}],\"TOMATOES\":[{\"5000\":7,\"4999\":19},{\"5014\":-7,\"5015\":-19}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":20},{\"10008\":-14,\"10010\":-20}],\"TOMATOES\":[{\"5000\":5,\"4999\":21},{\"5014\":-5,\"5015\":-21}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":22},{\"10008\":-12,\"10010\":-22}],\"TOMATOES\":[{\"5001\":7,\"4999\":24},{\"5014\":-7,\"5015\":-24}]},[],[],{},[{},{}]],[[\"TOMATOES\",5002,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5002, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":27},{\"10008\":-11,\"10010\":-27}],\"TOMATOES\":[{\"5000\":10,\"4999\":16},{\"5014\":-10,\"5015\":-16}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5013,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5013, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":25},{\"10008\":-11,\"10010\":-25}],\"TOMATOES\":[{\"5000\":10,\"4998\":15},{\"5013\":-10,\"5014\":-15}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5012,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5012, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[1900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":29},{\"10008\":-14,\"10010\":-29}],\"TOMATOES\":[{\"5000\":9,\"4999\":23},{\"5013\":-9,\"5015\":-23}]},[],[],{},[{},{}]],[[\"TOMATOES\",5001,80],[\"TOMATOES\",5012,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=80\\nORDER --> SELL: product=TOMATOES, price=5012, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 1900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":25},{\"10008\":-10,\"10010\":-25}],\"TOMATOES\":[{\"4999\":10,\"4998\":25},{\"5013\":-10,\"5014\":-25}]},[],[],{},[{},{}]],[[\"TOMATOES\",5000,80],[\"TOMATOES\",5012,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5000, volume=80\\nORDER --> SELL: product=TOMATOES, price=5012, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2000
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":23},{\"10008\":-13,\"10010\":-23}],\"TOMATOES\":[{\"4999\":8,\"4997\":23},{\"5012\":-8,\"5013\":-23}]},[],[],{},[{},{}]],[[\"TOMATOES\",5000,80],[\"TOMATOES\",5011,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5000, volume=80\\nORDER --> SELL: product=TOMATOES, price=5011, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":30},{\"10008\":-15,\"10010\":-30}],\"TOMATOES\":[{\"4997\":6,\"4996\":16},{\"5011\":-6,\"5012\":-16}]},[],[],{},[{},{}]],[[\"TOMATOES\",4998,80],[\"TOMATOES\",5010,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4998, volume=80\\nORDER --> SELL: product=TOMATOES, price=5010, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":22},{\"10008\":-11,\"10010\":-22}],\"TOMATOES\":[{\"4997\":6,\"4995\":22},{\"5010\":-6,\"5011\":-22}]},[],[],{},[{},{}]],[[\"TOMATOES\",4998,80],[\"TOMATOES\",5009,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4998, volume=80\\nORDER --> SELL: product=TOMATOES, price=5009, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":23},{\"10008\":-13,\"10010\":-23}],\"TOMATOES\":[{\"4996\":7,\"4995\":20},{\"5010\":-7,\"5011\":-20}]},[],[],{},[{},{}]],[[\"TOMATOES\",4997,80],[\"TOMATOES\",5009,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=80\\nORDER --> SELL: product=TOMATOES, price=5009, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":20},{\"10008\":-10,\"10010\":-20}],\"TOMATOES\":[{\"4996\":7,\"4995\":16},{\"5009\":-7,\"5011\":-16}]},[],[],{},[{},{}]],[[\"TOMATOES\",4997,80],[\"TOMATOES\",5008,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=80\\nORDER --> SELL: product=TOMATOES, price=5008, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":25},{\"10008\":-10,\"10010\":-25}],\"TOMATOES\":[{\"4996\":9,\"4995\":21},{\"5009\":-9,\"5011\":-21}]},[],[],{},[{},{}]],[[\"TOMATOES\",4997,80],[\"TOMATOES\",5008,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=80\\nORDER --> SELL: product=TOMATOES, price=5008, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":24},{\"10008\":-10,\"10010\":-24}],\"TOMATOES\":[{\"4997\":10,\"4995\":21},{\"5010\":-10,\"5011\":-21}]},[],[],{},[{},{}]],[[\"TOMATOES\",4998,80],[\"TOMATOES\",5009,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4998, volume=80\\nORDER --> SELL: product=TOMATOES, price=5009, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":29},{\"10008\":-10,\"10010\":-29}],\"TOMATOES\":[{\"4997\":5,\"4996\":24},{\"5011\":-5,\"5012\":-24}]},[],[],{},[{},{}]],[[\"TOMATOES\",4998,80],[\"TOMATOES\",5010,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4998, volume=80\\nORDER --> SELL: product=TOMATOES, price=5010, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[2900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":23},{\"10008\":-12,\"10010\":-23}],\"TOMATOES\":[{\"4997\":7,\"4996\":19},{\"5011\":-7,\"5012\":-19}]},[],[],{},[{},{}]],[[\"TOMATOES\",4998,80],[\"TOMATOES\",5010,-80],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4998, volume=80\\nORDER --> SELL: product=TOMATOES, price=5010, volume=80\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 2900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":29},{\"10008\":-10,\"10010\":-29}],\"TOMATOES\":[{\"4996\":7,\"4995\":18},{\"5010\":-7,\"5011\":-18}]},[[\"TOMATOES\",4998.0,3,\"SUBMISSION\",\"\",2900]],[],{\"TOMATOES\":3},[{},{}]],[[\"TOMATOES\",4997,77],[\"TOMATOES\",5009,-83],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=77\\nORDER --> SELL: product=TOMATOES, price=5009, volume=83\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3000
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":26},{\"10008\":-14,\"10010\":-26}],\"TOMATOES\":[{\"4996\":8,\"4995\":18},{\"5010\":-8,\"5011\":-18}]},[[\"TOMATOES\",4998.0,3,\"SUBMISSION\",\"\",2900]],[],{\"TOMATOES\":3},[{},{}]],[[\"TOMATOES\",4997,77],[\"TOMATOES\",5009,-83],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=77\\nORDER --> SELL: product=TOMATOES, price=5009, volume=83\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":30},{\"10008\":-11,\"10010\":-30}],\"TOMATOES\":[{\"4996\":7,\"4995\":21},{\"5009\":-7,\"5011\":-21}]},[[\"TOMATOES\",4998.0,3,\"SUBMISSION\",\"\",2900]],[],{\"TOMATOES\":3},[{},{}]],[[\"TOMATOES\",4997,77],[\"TOMATOES\",5008,-83],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=77\\nORDER --> SELL: product=TOMATOES, price=5008, volume=83\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":26},{\"10008\":-15,\"10010\":-26}],\"TOMATOES\":[{\"4996\":5,\"4995\":22},{\"5010\":-5,\"5011\":-22}]},[[\"TOMATOES\",4998.0,3,\"SUBMISSION\",\"\",2900]],[],{\"TOMATOES\":3},[{},{}]],[[\"TOMATOES\",4997,77],[\"TOMATOES\",5009,-83],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=77\\nORDER --> SELL: product=TOMATOES, price=5009, volume=83\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":27},{\"10008\":-12,\"10010\":-27}],\"TOMATOES\":[{\"4996\":7,\"4994\":19},{\"5009\":-7,\"5011\":-19}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":28},{\"10008\":-10,\"10010\":-28}],\"TOMATOES\":[{\"4995\":7,\"4993\":16},{\"5008\":-7,\"5009\":-16}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5007,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5007, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":21},{\"10008\":-13,\"10010\":-21}],\"TOMATOES\":[{\"4995\":7,\"4993\":16},{\"5008\":-7,\"5009\":-16}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5007,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5007, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":29},{\"10008\":-12,\"10010\":-29}],\"TOMATOES\":[{\"4995\":7,\"4994\":23},{\"5002\":-5,\"5008\":-7,\"5010\":-23}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5001,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5001, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":29},{\"10008\":-14,\"10010\":-29}],\"TOMATOES\":[{\"4994\":7,\"4993\":20},{\"5008\":-7,\"5009\":-20}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4995,74],[\"TOMATOES\",5007,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4995, volume=74\\nORDER --> SELL: product=TOMATOES, price=5007, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[3900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":25},{\"10008\":-15,\"10010\":-25}],\"TOMATOES\":[{\"5002\":8,\"4995\":5,\"4994\":16},{\"5009\":-5,\"5010\":-16}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5003,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5003, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 3900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":27},{\"10008\":-12,\"10010\":-27}],\"TOMATOES\":[{\"4996\":8,\"4994\":22},{\"5009\":-8,\"5010\":-22}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4000
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":23},{\"10008\":-14,\"10010\":-23}],\"TOMATOES\":[{\"4996\":6,\"4994\":19},{\"5009\":-6,\"5010\":-19}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":26},{\"10008\":-13,\"10010\":-26}],\"TOMATOES\":[{\"4996\":8,\"4994\":15},{\"5001\":-7,\"5009\":-8,\"5010\":-15}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5000,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5000, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":29},{\"10008\":-13,\"10010\":-29}],\"TOMATOES\":[{\"4995\":10,\"4994\":20},{\"5008\":-10,\"5010\":-20}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5007,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5007, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":26},{\"10008\":-15,\"10010\":-26}],\"TOMATOES\":[{\"4995\":8,\"4994\":15},{\"5008\":-8,\"5010\":-15}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5007,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5007, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":27},{\"10008\":-10,\"10010\":-27}],\"TOMATOES\":[{\"4995\":9,\"4994\":17},{\"5009\":-9,\"5010\":-17}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":21},{\"10008\":-13,\"10010\":-21}],\"TOMATOES\":[{\"4995\":7,\"4994\":17},{\"5009\":-7,\"5010\":-17}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":26},{\"10008\":-10,\"10010\":-26}],\"TOMATOES\":[{\"4995\":10,\"4994\":17},{\"5009\":-10,\"5010\":-17}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":24},{\"10008\":-13,\"10010\":-24}],\"TOMATOES\":[{\"4995\":7,\"4994\":21},{\"5009\":-7,\"5010\":-21}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[4900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":22},{\"10008\":-14,\"10010\":-22}],\"TOMATOES\":[{\"4995\":10,\"4994\":16},{\"5009\":-10,\"5010\":-16}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 4900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":22},{\"10008\":-14,\"10010\":-22}],\"TOMATOES\":[{\"4996\":8,\"4995\":21},{\"5009\":-8,\"5011\":-21}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 5000
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":25},{\"10000\":-10,\"10008\":-12,\"10010\":-25}],\"TOMATOES\":[{\"4996\":5,\"4994\":18},{\"5009\":-5,\"5010\":-18}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",9999,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=9999, volume=80\\n\"]",
+      "timestamp": 5100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":22},{\"10008\":-14,\"10010\":-22}],\"TOMATOES\":[{\"4996\":9,\"4994\":24},{\"5009\":-9,\"5010\":-24}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 5200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":25},{\"10008\":-10,\"10010\":-25}],\"TOMATOES\":[{\"4996\":5,\"4995\":18},{\"5009\":-5,\"5011\":-18}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 5300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":27},{\"10008\":-12,\"10010\":-27}],\"TOMATOES\":[{\"4996\":10,\"4995\":18},{\"5003\":-6,\"5009\":-10,\"5011\":-18}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5002,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5002, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 5400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":29},{\"10008\":-10,\"10010\":-29}],\"TOMATOES\":[{\"4996\":8,\"4994\":23},{\"5009\":-8,\"5010\":-23}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 5500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":26},{\"10008\":-10,\"10010\":-26}],\"TOMATOES\":[{\"4996\":7,\"4995\":24},{\"5009\":-7,\"5011\":-24}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 5600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":23},{\"10008\":-11,\"10010\":-23}],\"TOMATOES\":[{\"4995\":6,\"4994\":16},{\"5009\":-6,\"5010\":-16}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 5700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":24},{\"10008\":-13,\"10010\":-24}],\"TOMATOES\":[{\"4995\":7,\"4993\":21},{\"5008\":-7,\"5009\":-21}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5007,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5007, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 5800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[5900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":20},{\"10008\":-12,\"10010\":-20}],\"TOMATOES\":[{\"5000\":5,\"4995\":10,\"4994\":20},{\"5008\":-10,\"5010\":-20}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300]],[],{\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5007,-86],[\"EMERALDS\",9993,80],[\"EMERALDS\",10007,-80]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5007, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=80\\nORDER --> SELL: product=EMERALDS, price=10007, volume=80\\n\"]",
+      "timestamp": 5900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":22},{\"10008\":-12,\"10010\":-22}],\"TOMATOES\":[{\"4995\":5,\"4994\":19},{\"5009\":-5,\"5010\":-19}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6000
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":24},{\"10008\":-11,\"10010\":-24}],\"TOMATOES\":[{\"4995\":6,\"4994\":21},{\"5003\":-5,\"5009\":-6,\"5010\":-21}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5002,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5002, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":29},{\"10008\":-13,\"10010\":-29}],\"TOMATOES\":[{\"4996\":5,\"4994\":19},{\"5009\":-5,\"5010\":-19}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":25},{\"10008\":-12,\"10010\":-25}],\"TOMATOES\":[{\"4995\":9,\"4994\":25},{\"5009\":-9,\"5010\":-25}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":23},{\"10008\":-11,\"10010\":-23}],\"TOMATOES\":[{\"5001\":4,\"4995\":10,\"4994\":24},{\"5009\":-10,\"5010\":-24}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5002,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5002, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":20},{\"10008\":-10,\"10010\":-20}],\"TOMATOES\":[{\"4995\":9,\"4994\":25},{\"5009\":-9,\"5010\":-25}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4996,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4996, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":26},{\"10008\":-12,\"10010\":-26}],\"TOMATOES\":[{\"4996\":7,\"4994\":20},{\"5009\":-7,\"5010\":-20}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":26},{\"10008\":-10,\"10010\":-26}],\"TOMATOES\":[{\"4996\":10,\"4995\":24},{\"5009\":-10,\"5011\":-24}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5008,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5008, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":23},{\"10008\":-10,\"10010\":-23}],\"TOMATOES\":[{\"4997\":9,\"4996\":18},{\"5010\":-9,\"5012\":-18}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4998,74],[\"TOMATOES\",5009,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4998, volume=74\\nORDER --> SELL: product=TOMATOES, price=5009, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[6900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":28},{\"10008\":-12,\"10010\":-28}],\"TOMATOES\":[{\"4996\":10,\"4995\":18},{\"5010\":-10,\"5011\":-18}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4997,74],[\"TOMATOES\",5009,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4997, volume=74\\nORDER --> SELL: product=TOMATOES, price=5009, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 6900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":27},{\"10008\":-11,\"10010\":-27}],\"TOMATOES\":[{\"5002\":6,\"4997\":8,\"4996\":21},{\"5010\":-8,\"5012\":-21}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5003,74],[\"TOMATOES\",5009,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5003, volume=74\\nORDER --> SELL: product=TOMATOES, price=5009, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7000
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":29},{\"10008\":-15,\"10010\":-29}],\"TOMATOES\":[{\"4998\":10,\"4996\":24},{\"5011\":-10,\"5012\":-24}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4999,74],[\"TOMATOES\",5010,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4999, volume=74\\nORDER --> SELL: product=TOMATOES, price=5010, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":21},{\"10008\":-13,\"10010\":-21}],\"TOMATOES\":[{\"4997\":10,\"4996\":19},{\"5011\":-10,\"5012\":-19}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4998,74],[\"TOMATOES\",5010,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4998, volume=74\\nORDER --> SELL: product=TOMATOES, price=5010, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":23},{\"10008\":-15,\"10010\":-23}],\"TOMATOES\":[{\"4997\":7,\"4996\":21},{\"5011\":-7,\"5012\":-21}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4998,74],[\"TOMATOES\",5010,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4998, volume=74\\nORDER --> SELL: product=TOMATOES, price=5010, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":28},{\"10008\":-14,\"10010\":-28}],\"TOMATOES\":[{\"4997\":9,\"4996\":23},{\"5011\":-9,\"5012\":-23}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4998,74],[\"TOMATOES\",5010,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4998, volume=74\\nORDER --> SELL: product=TOMATOES, price=5010, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":29},{\"10008\":-15,\"10010\":-29}],\"TOMATOES\":[{\"4998\":9,\"4997\":16},{\"5011\":-9,\"5013\":-16}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4999,74],[\"TOMATOES\",5010,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4999, volume=74\\nORDER --> SELL: product=TOMATOES, price=5010, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":24},{\"10008\":-12,\"10010\":-24}],\"TOMATOES\":[{\"4998\":7,\"4997\":23},{\"5012\":-7,\"5013\":-23}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4999,74],[\"TOMATOES\",5011,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4999, volume=74\\nORDER --> SELL: product=TOMATOES, price=5011, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":28},{\"10008\":-13,\"10010\":-28}],\"TOMATOES\":[{\"4998\":10,\"4997\":17},{\"5012\":-10,\"5013\":-17}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4999,74],[\"TOMATOES\",5011,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4999, volume=74\\nORDER --> SELL: product=TOMATOES, price=5011, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":22},{\"10008\":-12,\"10010\":-22}],\"TOMATOES\":[{\"4998\":9,\"4997\":18},{\"5011\":-9,\"5013\":-18}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",4999,74],[\"TOMATOES\",5010,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=4999, volume=74\\nORDER --> SELL: product=TOMATOES, price=5010, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[7900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":25},{\"10008\":-15,\"10010\":-25}],\"TOMATOES\":[{\"4999\":8,\"4997\":16},{\"5012\":-8,\"5013\":-16}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5000,74],[\"TOMATOES\",5011,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5000, volume=74\\nORDER --> SELL: product=TOMATOES, price=5011, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 7900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":22},{\"10008\":-13,\"10010\":-22}],\"TOMATOES\":[{\"4999\":7,\"4997\":25},{\"5012\":-7,\"5013\":-25}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5000,74],[\"TOMATOES\",5011,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5000, volume=74\\nORDER --> SELL: product=TOMATOES, price=5011, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8000
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":14,\"9990\":22},{\"10008\":-14,\"10010\":-22}],\"TOMATOES\":[{\"4999\":10,\"4998\":15},{\"5013\":-10,\"5014\":-15}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5000,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5000, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":20},{\"10008\":-13,\"10010\":-20}],\"TOMATOES\":[{\"4999\":6,\"4998\":17},{\"5013\":-6,\"5014\":-17}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5000,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5000, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":26},{\"10008\":-11,\"10010\":-26}],\"TOMATOES\":[{\"4999\":7,\"4998\":24},{\"5013\":-7,\"5014\":-24}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5000,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5000, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"10000\":5,\"9992\":11,\"9990\":26},{\"10008\":-11,\"10010\":-26}],\"TOMATOES\":[{\"5000\":9,\"4999\":23},{\"5014\":-9,\"5015\":-23}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5013,-86],[\"EMERALDS\",10001,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5013, volume=86\\nORDER --> BUY: product=EMERALDS, price=10001, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":30},{\"10008\":-15,\"10010\":-30}],\"TOMATOES\":[{\"5000\":8,\"4999\":23},{\"5014\":-8,\"5015\":-23}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5013,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5013, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":22},{\"10008\":-15,\"10010\":-22}],\"TOMATOES\":[{\"5000\":10,\"4999\":16},{\"5014\":-10,\"5015\":-16}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5013,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5013, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":29},{\"10008\":-10,\"10010\":-29}],\"TOMATOES\":[{\"5001\":8,\"5000\":21},{\"5014\":-8,\"5016\":-21}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5002,74],[\"TOMATOES\",5013,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5002, volume=74\\nORDER --> SELL: product=TOMATOES, price=5013, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":23},{\"10008\":-15,\"10010\":-23}],\"TOMATOES\":[{\"5001\":5,\"4999\":17},{\"5014\":-5,\"5015\":-17}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5002,74],[\"TOMATOES\",5013,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5002, volume=74\\nORDER --> SELL: product=TOMATOES, price=5013, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[8900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":26},{\"10008\":-11,\"10010\":-26}],\"TOMATOES\":[{\"5000\":5,\"4999\":16},{\"5014\":-5,\"5015\":-16}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5013,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5013, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 8900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":23},{\"10008\":-13,\"10010\":-23}],\"TOMATOES\":[{\"5000\":6,\"4999\":17},{\"5014\":-6,\"5015\":-17}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5013,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5013, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 9000
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9100,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":30},{\"10000\":-7,\"10008\":-13,\"10010\":-30}],\"TOMATOES\":[{\"5000\":6,\"4999\":25},{\"5013\":-6,\"5015\":-25}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",9999,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=9999, volume=72\\n\"]",
+      "timestamp": 9100
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9200,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":24},{\"10008\":-11,\"10010\":-24}],\"TOMATOES\":[{\"5000\":8,\"4999\":19},{\"5014\":-8,\"5015\":-19}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5013,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5013, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 9200
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9300,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":23},{\"10008\":-10,\"10010\":-23}],\"TOMATOES\":[{\"5000\":6,\"4999\":15},{\"5014\":-6,\"5015\":-15}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5013,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5013, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 9300
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9400,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":22},{\"10008\":-12,\"10010\":-22}],\"TOMATOES\":[{\"5000\":9,\"4999\":17},{\"5013\":-9,\"5015\":-17}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 9400
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9500,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":12,\"9990\":28},{\"10008\":-12,\"10010\":-28}],\"TOMATOES\":[{\"5000\":6,\"4999\":15},{\"5013\":-6,\"5015\":-15}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 9500
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9600,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":15,\"9990\":20},{\"10008\":-15,\"10010\":-20}],\"TOMATOES\":[{\"4999\":10,\"4998\":21},{\"5013\":-10,\"5014\":-21}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5000,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5000, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 9600
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9700,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":11,\"9990\":25},{\"10008\":-11,\"10010\":-25}],\"TOMATOES\":[{\"5000\":5,\"4998\":15},{\"5013\":-5,\"5014\":-15}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",10007.0,8,\"\",\"SUBMISSION\",5900]],[],{\"EMERALDS\":-8,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,88],[\"EMERALDS\",10007,-72]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=88\\nORDER --> SELL: product=EMERALDS, price=10007, volume=72\\n\"]",
+      "timestamp": 9700
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9800,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":21},{\"10008\":-10,\"10010\":-21}],\"TOMATOES\":[{\"5000\":7,\"4999\":18},{\"5013\":-7,\"5015\":-18}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",9993.0,6,\"SUBMISSION\",\"\",9700]],[],{\"EMERALDS\":-2,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,82],[\"EMERALDS\",10007,-78]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=82\\nORDER --> SELL: product=EMERALDS, price=10007, volume=78\\n\"]",
+      "timestamp": 9800
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[9900,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":13,\"9990\":22},{\"10008\":-13,\"10010\":-22}],\"TOMATOES\":[{\"5000\":9,\"4999\":18},{\"5013\":-9,\"5015\":-18}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",9993.0,6,\"SUBMISSION\",\"\",9700]],[],{\"EMERALDS\":-2,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,82],[\"EMERALDS\",10007,-78]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=82\\nORDER --> SELL: product=EMERALDS, price=10007, volume=78\\n\"]",
+      "timestamp": 9900
+    },
+    {
+      "sandboxLog": "",
+      "lambdaLog": "[[10000,\"{}\",[[\"TOMATOES\",\"TOMATOES\",1],[\"EMERALDS\",\"EMERALDS\",1]],{\"EMERALDS\":[{\"9992\":10,\"9990\":29},{\"10008\":-10,\"10010\":-29}],\"TOMATOES\":[{\"5000\":9,\"4998\":18},{\"5013\":-9,\"5014\":-18}]},[[\"TOMATOES\",4997.0,3,\"SUBMISSION\",\"\",3300],[\"EMERALDS\",9993.0,6,\"SUBMISSION\",\"\",9700]],[],{\"EMERALDS\":-2,\"TOMATOES\":6},[{},{}]],[[\"TOMATOES\",5001,74],[\"TOMATOES\",5012,-86],[\"EMERALDS\",9993,82],[\"EMERALDS\",10007,-78]],0,\"{}\",\"traderData: {}\\nObservations: (plainValueObservations: {}, conversionObservations: {})\\nORDER --> BUY: product=TOMATOES, price=5001, volume=74\\nORDER --> SELL: product=TOMATOES, price=5012, volume=86\\nORDER --> BUY: product=EMERALDS, price=9993, volume=82\\nORDER --> SELL: product=EMERALDS, price=10007, volume=78\\n\"]",
+      "timestamp": 10000
+    }
+  ],
+  "tradeHistory": [
+    {
+      "timestamp": 2900,
+      "buyer": "SUBMISSION",
+      "seller": "",
+      "symbol": "TOMATOES",
+      "currency": "XIRECS",
+      "price": 4998.0,
+      "quantity": 3
+    },
+    {
+      "timestamp": 3300,
+      "buyer": "SUBMISSION",
+      "seller": "",
+      "symbol": "TOMATOES",
+      "currency": "XIRECS",
+      "price": 4997.0,
+      "quantity": 3
+    },
+    {
+      "timestamp": 5900,
+      "buyer": "",
+      "seller": "SUBMISSION",
+      "symbol": "EMERALDS",
+      "currency": "XIRECS",
+      "price": 10007.0,
+      "quantity": 8
+    },
+    {
+      "timestamp": 9700,
+      "buyer": "SUBMISSION",
+      "seller": "",
+      "symbol": "EMERALDS",
+      "currency": "XIRECS",
+      "price": 9993.0,
+      "quantity": 6
+    }
+  ]
+}

@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "tests/logParsingUtils.test.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

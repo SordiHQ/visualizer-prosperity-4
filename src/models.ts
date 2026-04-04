@@ -24,6 +24,27 @@ export type Position = number;
 export type UserId = string;
 export type ObservationValue = number;
 
+export interface AlgoLogs {
+  sandboxLog?: string;
+  lambdaLog?: string;
+  timestamp?: number;
+}
+
+export interface ParsedJsonLogs {
+  submissionId?: string;
+  activitiesLog: string;
+  logs?: Array<AlgoLogs>;
+  tradeHistory?: Array<{
+    timestamp: number;
+    buyer: string;
+    seller: string;
+    symbol: string;
+    currency: string;
+    price: number;
+    quantity: number;
+  }>;
+}
+
 export interface ActivityLogRow {
   day: number;
   timestamp: number;
@@ -42,6 +63,8 @@ export interface Listing {
   denomination: Product;
 }
 
+// this is not used in this first round
+// FIXME: see if it could be useful in the next rounds
 export interface ConversionObservation {
   bidPrice: number;
   askPrice: number;
@@ -52,6 +75,8 @@ export interface ConversionObservation {
   sunlightIndex: number;
 }
 
+// this is not used in this first round
+// FIXME: see if it could be useful in the next rounds
 export interface Observation {
   plainValueObservations: Record<Product, ObservationValue>;
   conversionObservations: Record<Product, ConversionObservation>;
@@ -89,21 +114,26 @@ export interface TradingState {
 }
 
 export interface AlgorithmDataRow {
-  state: TradingState;
-  orders: Record<ProsperitySymbol, Order[]>;
-  conversions: number;
-  traderData: string;
-  algorithmLogs: string;
+  state: TradingState; // input to Trader.run at time t
+  orders: Record<ProsperitySymbol, Order[]>; // output from Trader.run at time t
+  conversions: number; // output from Trader.run at time t (not used in the round0)
+  traderData: string; // output from Trader.run at time t (to persist at time t+1)
+  algorithmLogs: string; // output log/debug string from Trader.run at time t
   sandboxLogs: string;
 }
+
+export type AlgorithmSource = 'prosperity-submission' | 'backtester' | 'legacy-format';
 
 export interface Algorithm {
   summary?: AlgorithmSummary;
   activityLogs: ActivityLogRow[];
   data: AlgorithmDataRow[];
+  source?: AlgorithmSource;
+  submissionId?: string;
+  warnings?: string[];
 }
 
-export type CompressedListing = [symbol: ProsperitySymbol, product: Product, denomination: Product];
+export type CompressedListing = [symbol: ProsperitySymbol, product: Product, denomination: Product | number];
 
 export type CompressedOrderDepth = [buyOrders: Record<number, number>, sellOrders: Record<number, number>];
 
