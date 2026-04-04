@@ -105,6 +105,14 @@ export function VisualizerPage(): ReactNode {
   return (
     <Container fluid>
       <Grid>
+        {algorithm.source === 'prosperity-submission' && (
+          <Grid.Col span={12}>
+            <Alert color="blue" title="Prosperity Submission">
+              This log was detected as an official Prosperity submission
+              {algorithm.submissionId ? ` (submission ID: ${algorithm.submissionId}).` : '.'}
+            </Alert>
+          </Grid.Col>
+        )}
         {algorithm.warnings && algorithm.warnings.length > 0 && (
           <Grid.Col span={12}>
             <Alert color="yellow" title="Log Format Warning">

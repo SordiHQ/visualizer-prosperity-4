@@ -18,6 +18,7 @@ export function parseAlgorithmLogs(logs: string, summary?: AlgorithmSummary): Al
     const legacyAlgorithm = parseLegacyAlgorithmLogs(logs, summary);
     return {
       ...legacyAlgorithm,
+      source: 'legacy-format',
       warnings: [
         ...(legacyAlgorithm.warnings ?? []),
         'Legacy log format detected. Parsed with backward-compatible mode; some fields may differ from the current format.',
@@ -49,9 +50,14 @@ export function parseAlgorithmLogs(logs: string, summary?: AlgorithmSummary): Al
     );
   }
 
+  const submissionId = typeof parsedJsonLogs.submissionId === 'string' ? parsedJsonLogs.submissionId.trim() : '';
+  const source = submissionId.length > 0 ? 'prosperity-submission' : 'backtester';
+
   return {
     summary,
     activityLogs,
     data,
+    source,
+    submissionId: submissionId.length > 0 ? submissionId : undefined,
   };
 }

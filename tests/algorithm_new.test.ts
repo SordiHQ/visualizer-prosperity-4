@@ -31,6 +31,7 @@ describe('algorithm_new.parseAlgorithmLogs', () => {
     const parsed = parseAlgorithmLogs('legacy payload');
 
     expect(legacyParseMock).toHaveBeenCalledOnce();
+    expect(parsed.source).toBe('legacy-format');
     expect(parsed.warnings).toEqual([
       'Legacy log format detected. Parsed with backward-compatible mode; some fields may differ from the current format.',
     ]);
@@ -53,8 +54,8 @@ describe('algorithm_new.parseAlgorithmLogs', () => {
     ]);
   });
 
-  it('uses JSON parser path and avoids warning for valid current format', async () => {
-    extractJsonLogsMock.mockReturnValue({ activitiesLog: 'rows', logs: [{}] });
+  it('detects Prosperity submission when submissionId is present', async () => {
+    extractJsonLogsMock.mockReturnValue({ activitiesLog: 'rows', logs: [{}], submissionId: 'abc-123' });
     getActivityLogsFromParsedJsonMock.mockReturnValue([
       {
         day: -1,
@@ -97,6 +98,53 @@ describe('algorithm_new.parseAlgorithmLogs', () => {
     expect(legacyParseMock).not.toHaveBeenCalled();
     expect(parsed.activityLogs).toHaveLength(1);
     expect(parsed.data).toHaveLength(1);
+    expect(parsed.source).toBe('prosperity-submission');
+    expect(parsed.submissionId).toBe('abc-123');
     expect(parsed.warnings).toBeUndefined();
+  });
+
+  it('detects backtester log when submissionId is missing', async () => {
+    extractJsonLogsMock.mockReturnValue({ activitiesLog: 'rows', logs: [{}] });
+    getActivityLogsFromParsedJsonMock.mockReturnValue([
+      {
+        day: -1,
+        timestamp: 0,
+        product: 'TOMATOES',
+        bidPrices: [4999],
+        bidVolumes: [1],
+        askPrices: [5001],
+        askVolumes: [1],
+        midPrice: 5000,
+        profitLoss: 0,
+      },
+    ]);
+    getAlgorithmDataFromJsonMock.mockReturnValue([
+      {
+        state: {
+          timestamp: 0,
+          traderData: '{}',
+          listings: {},
+          orderDepths: {},
+          ownTrades: {},
+          marketTrades: {},
+          position: {},
+          observations: {
+            plainValueObservations: {},
+            conversionObservations: {},
+          },
+        },
+        orders: {},
+        conversions: 0,
+        traderData: '{}',
+        algorithmLogs: '',
+        sandboxLogs: '',
+      },
+    ]);
+
+    const { parseAlgorithmLogs } = await import('../src/utils/algorithm_new.tsx');
+    const parsed = parseAlgorithmLogs('json payload');
+
+    expect(parsed.source).toBe('backtester');
+    expect(parsed.submissionId).toBeUndefined();
   });
 });

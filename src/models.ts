@@ -122,10 +122,14 @@ export interface AlgorithmDataRow {
   sandboxLogs: string;
 }
 
+export type AlgorithmSource = 'prosperity-submission' | 'backtester' | 'legacy-format';
+
 export interface Algorithm {
   summary?: AlgorithmSummary;
   activityLogs: ActivityLogRow[];
   data: AlgorithmDataRow[];
+  source?: AlgorithmSource;
+  submissionId?: string;
   warnings?: string[];
 }
 
