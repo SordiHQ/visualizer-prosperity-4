@@ -1,6 +1,6 @@
-import { Alert, Center, Container, Grid, Title } from '@mantine/core';
+import { Alert, Button, Container, Grid, Group, Title } from '@mantine/core';
 import { ReactNode } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { useStore } from '../../store.ts';
 import { formatNumber } from '../../utils/format.ts';
 import { AlgorithmSummaryCard } from './AlgorithmSummaryCard.tsx';
@@ -122,9 +122,12 @@ export function VisualizerPage(): ReactNode {
         )}
         <Grid.Col span={12}>
           <VisualizerCard>
-            <Center>
+            <Group justify="space-between">
               <Title order={2}>Final Profit / Loss: {formatNumber(profitLoss)}</Title>
-            </Center>
+              <Button component={Link} to={`/dashboard${search}`} variant="light">
+                Open Dashboard
+              </Button>
+            </Group>
           </VisualizerCard>
         </Grid.Col>
         <Grid.Col span={{ xs: 12, sm: 6 }}>

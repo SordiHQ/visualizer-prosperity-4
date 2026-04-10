@@ -6,6 +6,7 @@ import { createTheme, MantineProvider } from '@mantine/core';
 import { ReactNode } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider } from 'react-router-dom';
 import { BasePage } from './pages/base/BasePage.tsx';
+import { DashboardRoutePage } from './pages/dashboard/DashboardRoutePage.tsx';
 import { HomePage } from './pages/home/HomePage.tsx';
 import { VisualizerPage } from './pages/visualizer/VisualizerPage.tsx';
 import { useStore } from './store.ts';
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<BasePage />}>
       <Route path="/" element={<HomePage />} />
       <Route path="/visualizer" element={<VisualizerPage />} />
+      <Route path="/dashboard" element={<DashboardRoutePage />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Route>,
   ),
