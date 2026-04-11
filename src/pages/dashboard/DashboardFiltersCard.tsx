@@ -52,55 +52,68 @@ export function DashboardFiltersCard({
           label="Include trader IDs (CSV)"
           placeholder="alice,bob"
           value={filters.includeTraderIds}
-          onChange={event => setFilters(prev => ({ ...prev, includeTraderIds: event.currentTarget.value }))}
+          onChange={event => {
+            const value = event.currentTarget.value;
+            setFilters(prev => ({ ...prev, includeTraderIds: value }));
+          }}
         />
         <TextInput
           label="Exclude trader IDs (CSV)"
           placeholder="charlie"
           value={filters.excludeTraderIds}
-          onChange={event => setFilters(prev => ({ ...prev, excludeTraderIds: event.currentTarget.value }))}
-        />
-
-        <NumberInput
-          label="Point cap per series"
-          value={filters.maxPoints}
-          onChange={value =>
-            setFilters(prev => ({ ...prev, maxPoints: typeof value === 'number' ? Math.max(300, value) : 5000 }))
-          }
-          min={300}
-          step={250}
-          allowDecimal={false}
+          onChange={event => {
+            const value = event.currentTarget.value;
+            setFilters(prev => ({ ...prev, excludeTraderIds: value }));
+          }}
         />
 
         <Checkbox
           label="Show order book levels"
           checked={filters.showOrderBookLevels}
-          onChange={event => setFilters(prev => ({ ...prev, showOrderBookLevels: event.currentTarget.checked }))}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, showOrderBookLevels: checked }));
+          }}
         />
         <Checkbox
           label="Show own trades"
           checked={filters.showOwnTrades}
-          onChange={event => setFilters(prev => ({ ...prev, showOwnTrades: event.currentTarget.checked }))}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, showOwnTrades: checked }));
+          }}
         />
         <Checkbox
           label="Show market trades"
           checked={filters.showMarketTrades}
-          onChange={event => setFilters(prev => ({ ...prev, showMarketTrades: event.currentTarget.checked }))}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, showMarketTrades: checked }));
+          }}
         />
         <Checkbox
           label="Show mid price"
           checked={filters.showMidPrice}
-          onChange={event => setFilters(prev => ({ ...prev, showMidPrice: event.currentTarget.checked }))}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, showMidPrice: checked }));
+          }}
         />
         <Checkbox
           label="Overlay product P/L"
           checked={filters.showPnlOverlay}
-          onChange={event => setFilters(prev => ({ ...prev, showPnlOverlay: event.currentTarget.checked }))}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, showPnlOverlay: checked }));
+          }}
         />
         <Checkbox
           label="Overlay position"
           checked={filters.showPositionOverlay}
-          onChange={event => setFilters(prev => ({ ...prev, showPositionOverlay: event.currentTarget.checked }))}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, showPositionOverlay: checked }));
+          }}
         />
       </Stack>
     </VisualizerCard>
