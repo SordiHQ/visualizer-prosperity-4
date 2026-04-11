@@ -1,5 +1,5 @@
 import { Box, Container, Group, Text, Tooltip } from '@mantine/core';
-import { IconEye, IconHome } from '@tabler/icons-react';
+import { IconEye, IconHome, IconLayoutDashboard } from '@tabler/icons-react';
 import { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useStore } from '../../store.ts';
@@ -37,6 +37,19 @@ export function Header(): ReactNode {
         <Box visibleFrom="xs">Visualizer</Box>
       </Link>,
     );
+    links.push(
+      <Link
+        key="dashboard"
+        to={`/dashboard${location.search}`}
+        className={classes.link}
+        data-active={location.pathname === '/dashboard' || undefined}
+      >
+        <Box hiddenFrom="xs">
+          <IconLayoutDashboard size={18} />
+        </Box>
+        <Box visibleFrom="xs">Dashboard</Box>
+      </Link>,
+    );
   } else {
     links.push(
       <Tooltip key="visualizer" label="Load an algorithm first">
@@ -45,6 +58,16 @@ export function Header(): ReactNode {
             <IconEye size={18} />
           </Box>
           <Box visibleFrom="xs">Visualizer</Box>
+        </a>
+      </Tooltip>,
+    );
+    links.push(
+      <Tooltip key="dashboard" label="Load an algorithm first">
+        <a className={`${classes.link} ${classes.linkDisabled}`}>
+          <Box hiddenFrom="xs">
+            <IconLayoutDashboard size={18} />
+          </Box>
+          <Box visibleFrom="xs">Dashboard</Box>
         </a>
       </Tooltip>,
     );
