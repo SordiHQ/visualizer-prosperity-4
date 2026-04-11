@@ -7,6 +7,7 @@ import { formatTradeLine } from './dashboardUtils.ts';
 
 interface TimestampExplorerCardProps {
   timestamps: number[];
+  step: number;
   effectiveTimestamp: number | null;
   hoveredTradeDetails: TradePointMeta[];
   onTimestampChange: (value: number) => void;
@@ -14,13 +15,13 @@ interface TimestampExplorerCardProps {
 
 export function TimestampExplorerCard({
   timestamps,
+  step,
   effectiveTimestamp,
   hoveredTradeDetails,
   onTimestampChange,
 }: TimestampExplorerCardProps): ReactNode {
   const min = timestamps[0];
   const max = timestamps[timestamps.length - 1];
-  const step = timestamps.length >= 2 ? Math.max(1, timestamps[1] - timestamps[0]) : 1;
 
   return (
     <VisualizerCard title="Timestamp Explorer">

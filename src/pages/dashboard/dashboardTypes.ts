@@ -1,11 +1,21 @@
 import { SeriesScatterOptions } from 'highcharts';
 
+export type TradeExecutionType = 'own_take' | 'own_make' | 'market';
+
 export interface TradePointMeta {
   side: 'own' | 'market';
+  executionType: TradeExecutionType;
   buyer: string;
   seller: string;
   quantity: number;
   price: number;
+  takeQty?: number;
+  makeQty?: number;
+  bookMatchedQty?: number;
+}
+
+export interface TradeTooltipMeta extends TradePointMeta {
+  timestamp: number;
 }
 
 export type TradePoint = [number, number, TradePointMeta];
@@ -19,7 +29,8 @@ export interface ProductSeriesCache {
   askSeries: XYPoint[][];
   pnl: XYPoint[];
   position: XYPoint[];
-  ownTrades: TradePoint[];
+  ownTakeTrades: TradePoint[];
+  ownMakeTrades: TradePoint[];
   marketTrades: TradePoint[];
 }
 
