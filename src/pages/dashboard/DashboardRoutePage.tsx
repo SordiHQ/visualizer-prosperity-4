@@ -233,10 +233,7 @@ export function DashboardRoutePage(): ReactNode {
   }, [algorithm.data]);
 
   const algorithmTimestamps = useMemo(() => algorithm.data.map(row => row.state.timestamp), [algorithm.data]);
-  const productTimelineTimestamps = useMemo(
-    () => (productCache ? [...productCache.timestamps] : []),
-    [productCache],
-  );
+  const productTimelineTimestamps = useMemo(() => (productCache ? [...productCache.timestamps] : []), [productCache]);
   const productTimelineStep = useMemo(() => {
     if (productTimelineTimestamps.length < 2) {
       return 1;
@@ -263,13 +260,7 @@ export function DashboardRoutePage(): ReactNode {
   );
   const priceChartSeries = useMemo(
     () =>
-      buildPriceChartSeries(
-        productCache,
-        filters,
-        filteredOwnTakeTrades,
-        filteredOwnMakeTrades,
-        filteredMarketTrades,
-      ),
+      buildPriceChartSeries(productCache, filters, filteredOwnTakeTrades, filteredOwnMakeTrades, filteredMarketTrades),
     [productCache, filters, filteredOwnTakeTrades, filteredOwnMakeTrades, filteredMarketTrades],
   );
   const priceChartOptions = useMemo(() => getPriceChartOptions(), []);
@@ -298,8 +289,7 @@ export function DashboardRoutePage(): ReactNode {
     effectiveTimestamp === null || algorithmTimestamps.length === 0
       ? null
       : findClosestTimestamp(algorithmTimestamps, effectiveTimestamp);
-  const selectedRow =
-    selectedAlgorithmTimestamp === null ? null : rowsByTimestamp[selectedAlgorithmTimestamp];
+  const selectedRow = selectedAlgorithmTimestamp === null ? null : rowsByTimestamp[selectedAlgorithmTimestamp];
   const syncedLogs =
     selectedRow && effectiveProduct ? formatProductLogs(selectedRow, effectiveProduct) : 'No timestamp selected.';
 
