@@ -23,6 +23,12 @@ import {
 import { LogViewerCard } from './LogViewerCard.tsx';
 import { TimestampExplorerCard } from './TimestampExplorerCard.tsx';
 
+const OWN_TRADE_TAKE_COLOR_SELL_FILL = 'blue';
+const OWN_TRADE_MAKE_COLOR_SELL_FILL = 'cyan';
+
+const OWN_TRADE_TAKE_COLOR_BUY_FILL = 'orange';
+const OWN_TRADE_MAKE_COLOR_BUY_FILL = 'yellow'; //amber #ffbf00 FIXME: find something similar that allows to see also in LIGHT MODE (yellow is BAD)
+
 const defaultFilters: DashboardFiltersState = {
   showOrderBookLevels: true,
   showOwnTrades: true,
@@ -95,22 +101,32 @@ function buildPriceChartSeries(
   }
 
   if (filters.showOwnTrades) {
+    const ownTakeData = toScatterData(filteredOwnTakeTrades).map(point => ({
+      ...point,
+      color: point.custom?.seller === 'SUBMISSION' ? OWN_TRADE_TAKE_COLOR_SELL_FILL : OWN_TRADE_TAKE_COLOR_BUY_FILL,
+    }));
+
+    const ownMakeData = toScatterData(filteredOwnMakeTrades).map(point => ({
+      ...point,
+      color: point.custom?.seller === 'SUBMISSION' ? OWN_TRADE_MAKE_COLOR_SELL_FILL : OWN_TRADE_MAKE_COLOR_BUY_FILL,
+    }));
+
     series.push({
       type: 'scatter',
-      name: 'Own trades (take)',
-      color: '#f08c00',
-      marker: { symbol: 'cross', radius: 4 },
-      data: toScatterData(filteredOwnTakeTrades),
+      name: 'TAKE Own trades',
+      color: 'gray',
+      marker: { symbol: 'circle', radius: 4 },
+      data: ownTakeData,
       tooltip: {
         pointFormatter: tradePointFormatter,
       },
     });
     series.push({
       type: 'scatter',
-      name: 'Own trades (make)',
-      color: '#fab005',
-      marker: { symbol: 'diamond', radius: 4 },
-      data: toScatterData(filteredOwnMakeTrades),
+      name: 'MAKE Own trades',
+      color: 'gray',
+      marker: { symbol: 'diamond', radius: 5 },
+      data: ownMakeData,
       tooltip: {
         pointFormatter: tradePointFormatter,
       },
@@ -121,8 +137,8 @@ function buildPriceChartSeries(
     series.push({
       type: 'scatter',
       name: 'Market trades',
-      color: '#7c2d12',
-      marker: { symbol: 'circle', radius: 3 },
+      color: 'magenta',
+      marker: { symbol: 'triangle', radius: 6 },
       data: toScatterData(filteredMarketTrades),
       tooltip: {
         pointFormatter: tradePointFormatter,

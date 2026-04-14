@@ -36,14 +36,14 @@ function getTakeMakeQty(ownTrade: Trade, activityLogs: ActivityLogRow[]): { take
   // seller === SUBMISSION means we sold into bids (taking bid-side liquidity).
   if (ownTrade.seller === 'SUBMISSION') {
     const priceIndex = activityLog.bidPrices.indexOf(ownTrade.price);
-    const takeQty = priceIndex >= 0 ? (activityLog.bidVolumes[priceIndex] ?? 0) : 0;
+    const takeQty = priceIndex >= 0 ? Math.min(activityLog.bidVolumes[priceIndex] ?? 0, ownTrade.quantity) : 0;
     return { takeQty, makeQty: ownTrade.quantity - takeQty };
   }
 
   // buyer === SUBMISSION means we bought from asks (taking ask-side liquidity).
   if (ownTrade.buyer === 'SUBMISSION') {
     const priceIndex = activityLog.askPrices.indexOf(ownTrade.price);
-    const takeQty = priceIndex >= 0 ? (activityLog.askVolumes[priceIndex] ?? 0) : 0;
+    const takeQty = priceIndex >= 0 ? Math.min(activityLog.askVolumes[priceIndex] ?? 0, ownTrade.quantity) : 0;
     return { takeQty, makeQty: ownTrade.quantity - takeQty };
   }
 
