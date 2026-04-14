@@ -278,6 +278,7 @@ export function parseAlgorithmLogs(logs: string, summary?: AlgorithmSummary): Al
     summary,
     activityLogs,
     data,
+    marketTrades: [], // FIXME: CHANGE THIS OR DATA MODEL for backward compatibility
   };
 }
 
