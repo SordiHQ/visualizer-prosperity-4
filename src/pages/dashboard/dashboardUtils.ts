@@ -1,11 +1,7 @@
 import Highcharts from 'highcharts';
 import { ActivityLogRow, ClassifiedTrade } from '../../models.ts';
 import { formatNumber } from '../../utils/format.ts';
-import {
-  DashboardFiltersState,
-  DashboardTradePoint,
-  ProductSeriesCache,
-} from './dashboardTypes.ts';
+import { DashboardFiltersState, DashboardTradePoint, ProductSeriesCache } from './dashboardTypes.ts';
 
 export function findClosestTimestamp(timestamps: number[], target: number): number {
   if (timestamps.length === 0) {
