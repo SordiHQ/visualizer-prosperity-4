@@ -17,7 +17,6 @@ export interface ProductSeriesCache {
   bidSeries: XYPoint[][];
   askSeries: XYPoint[][];
   pnl: XYPoint[];
-  position: XYPoint[];
   ownTakeTrades: DashboardTradePoint[];
   ownMakeTrades: DashboardTradePoint[];
   marketTrades: DashboardTradePoint[];
@@ -29,7 +28,6 @@ export interface DashboardFiltersState {
   showMarketTrades: boolean;
   showMidPrice: boolean;
   showPnlOverlay: boolean;
-  showPositionOverlay: boolean;
   minQuantity: number;
   maxQuantity: number;
   includeTraderIds: string;

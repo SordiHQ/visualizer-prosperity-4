@@ -1,5 +1,5 @@
 import Highcharts from 'highcharts';
-import { ActivityLogRow, AlgorithmDataRow, ClassifiedTrade } from '../../models.ts';
+import { ActivityLogRow, ClassifiedTrade } from '../../models.ts';
 import { formatNumber } from '../../utils/format.ts';
 import {
   DashboardFiltersState,
@@ -102,7 +102,6 @@ function ensureCache(productCaches: Record<string, ProductSeriesCache>, product:
       bidSeries: [[], [], []],
       askSeries: [[], [], []],
       pnl: [],
-      position: [],
       ownTakeTrades: [],
       ownMakeTrades: [],
       marketTrades: [],
@@ -146,7 +145,6 @@ function addClassifiedTradeToCache(cache: ProductSeriesCache, classifiedTrade: C
 }
 
 export function collectProductSeries(
-  algorithmRows: AlgorithmDataRow[],
   activityLogs: ActivityLogRow[],
   classifiedTrades: ClassifiedTrade[],
 ): Record<string, ProductSeriesCache> {
@@ -168,13 +166,6 @@ export function collectProductSeries(
     }
   }
 
-  for (const row of algorithmRows) {
-    const timestamp = row.state.timestamp;
-    for (const [product, position] of Object.entries(row.state.position)) {
-      ensureCache(productCaches, product).position.push([timestamp, position]);
-    }
-  }
-
   for (const classifiedTrade of classifiedTrades) {
     const product = classifiedTrade.trade.symbol;
     const cache = ensureCache(productCaches, product);
@@ -183,7 +174,6 @@ export function collectProductSeries(
 
   for (const cache of Object.values(productCaches)) {
     cache.timestamps.sort((a, b) => a - b);
-    cache.position.sort((a, b) => a[0] - b[0]);
     cache.ownTakeTrades.sort((a, b) => a.classifiedTrade.trade.timestamp - b.classifiedTrade.trade.timestamp);
     cache.ownMakeTrades.sort((a, b) => a.classifiedTrade.trade.timestamp - b.classifiedTrade.trade.timestamp);
     cache.marketTrades.sort((a, b) => a.classifiedTrade.trade.timestamp - b.classifiedTrade.trade.timestamp);
@@ -245,36 +235,6 @@ export function formatTradeHoverFields(point: DashboardTradePoint): string {
     `buyer: <b>${trade.buyer}</b>`,
     `seller: <b>${trade.seller}</b>`,
   ].join('<br/>');
-}
-
-export function formatProductLogs(row: AlgorithmDataRow, product: string): string {
-  const result: string[] = [];
-  const keyword = product.toLowerCase();
-
-  const pushFilteredLines = (header: string, body: string): void => {
-    if (!body.trim()) {
-      return;
-    }
-    const filtered = body
-      .split('\n')
-      .filter(line => line.toLowerCase().includes(keyword))
-      .slice(0, 120);
-    if (filtered.length === 0) {
-      return;
-    }
-    result.push(`${header}:`);
-    result.push(...filtered);
-    result.push('');
-  };
-
-  pushFilteredLines('Algorithm logs', row.algorithmLogs ?? '');
-  pushFilteredLines('Sandbox logs', row.sandboxLogs ?? '');
-
-  if (result.length === 0) {
-    return 'No product-scoped log lines at this timestamp.';
-  }
-
-  return result.join('\n');
 }
 
 export function toScatterData(points: DashboardTradePoint[]): Highcharts.PointOptionsObject[] {
