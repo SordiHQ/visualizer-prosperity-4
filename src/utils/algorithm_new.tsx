@@ -1,8 +1,14 @@
 import { Text } from '@mantine/core';
 import { ReactNode } from 'react';
-import { ActivityLogRow, Algorithm, AlgorithmDataRow, AlgorithmSummary } from '../models.ts';
+import { ActivityLogRow, Algorithm, AlgorithmDataRow, AlgorithmSummary, ClassifiedTrade, Trade } from '../models.ts';
 import { parseAlgorithmLogs as parseLegacyAlgorithmLogs } from './algorithm.tsx';
-import { extractJsonLogs, getActivityLogsFromParsedJson, getAlgorithmDataFromJson } from './logParsingUtils.ts';
+import {
+  extractJsonLogs,
+  getActivityLogsFromParsedJson,
+  getAlgorithmDataFromJson,
+  getMarketTradesFromJson,
+} from './logParsingUtils.ts';
+import { classifyMarketTrades } from './trade.ts';
 
 export class AlgorithmParseError extends Error {
   public constructor(public readonly node: ReactNode) {
@@ -27,10 +33,12 @@ export function parseAlgorithmLogs(logs: string, summary?: AlgorithmSummary): Al
   }
 
   const activityLogs: ActivityLogRow[] = getActivityLogsFromParsedJson(parsedJsonLogs);
+
+  // FIXME: remove trades from here
   const data: AlgorithmDataRow[] = getAlgorithmDataFromJson(parsedJsonLogs);
 
-  // TODO: Add trades
-  // const trades : Trade[] = getTradesFromParsedJson(parsedJsonLogs);
+  const tradeHistory: Trade[] = getMarketTradesFromJson(parsedJsonLogs);
+  const classifiedTrades: ClassifiedTrade[] = classifyMarketTrades(activityLogs, tradeHistory);
 
   if (activityLogs.length === 0 && data.length === 0) {
     throw new AlgorithmParseError(
@@ -59,5 +67,6 @@ export function parseAlgorithmLogs(logs: string, summary?: AlgorithmSummary): Al
     data,
     source,
     submissionId: submissionId.length > 0 ? submissionId : undefined,
+    marketTrades: classifiedTrades,
   };
 }

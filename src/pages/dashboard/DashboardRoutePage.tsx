@@ -218,8 +218,8 @@ export function DashboardRoutePage(): ReactNode {
   if (algorithm === null) return <Navigate to={`/${search}`} />;
 
   const productsByCache = useMemo(
-    () => collectProductSeries(algorithm.data, algorithm.activityLogs),
-    [algorithm.activityLogs, algorithm.data],
+    () => collectProductSeries(algorithm.data, algorithm.activityLogs, algorithm.marketTrades),
+    [algorithm.activityLogs, algorithm.data, algorithm.marketTrades],
   );
   const products = useMemo(() => Object.keys(productsByCache).sort((a, b) => a.localeCompare(b)), [productsByCache]);
   const effectiveProduct =

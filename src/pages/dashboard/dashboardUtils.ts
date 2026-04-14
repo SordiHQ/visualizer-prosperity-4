@@ -1,5 +1,5 @@
 import Highcharts from 'highcharts';
-import { ActivityLogRow, AlgorithmDataRow, OrderDepth, Trade } from '../../models.ts';
+import { ActivityLogRow, AlgorithmDataRow, ClassifiedTrade } from '../../models.ts';
 import { formatNumber } from '../../utils/format.ts';
 import {
   DashboardFiltersState,
@@ -112,36 +112,70 @@ function ensureCache(productCaches: Record<string, ProductSeriesCache>, product:
   return productCaches[product];
 }
 
-function getBookVolumeAtPrice(orderDepth: OrderDepth | undefined, trade: Trade): number {
-  if (!orderDepth) {
-    return 0;
-  }
-
-  const bookPrice = Number(trade.price);
-  if (trade.buyer === 'SUBMISSION') {
-    // Own buy -> we are taking from asks.
-    return Math.abs(orderDepth.sellOrders[bookPrice] ?? 0);
-  }
-
-  if (trade.seller === 'SUBMISSION') {
-    // Own sell -> we are taking from bids.
-    return Math.abs(orderDepth.buyOrders[bookPrice] ?? 0);
-  }
-
-  return 0;
-}
-
-function classifyOwnTrade(trade: Trade, orderDepth: OrderDepth | undefined): { takeQty: number; makeQty: number } {
+function addClassifiedTradeToCache(cache: ProductSeriesCache, classifiedTrade: ClassifiedTrade): void {
+  const { trade } = classifiedTrade;
   const quantity = Math.abs(trade.quantity);
-  const bookMatchedQty = getBookVolumeAtPrice(orderDepth, trade);
-  const takeQty = Math.min(quantity, bookMatchedQty);
-  const makeQty = quantity - takeQty;
-  return { takeQty, makeQty };
+
+  if (classifiedTrade.side === 'market') {
+    cache.marketTrades.push([
+      trade.timestamp,
+      trade.price,
+      {
+        side: 'market',
+        executionType: 'market',
+        buyer: trade.buyer,
+        seller: trade.seller,
+        quantity,
+        price: trade.price,
+      },
+    ]);
+    return;
+  }
+
+  const takeQty = Math.max(0, Math.abs(classifiedTrade.takeQty ?? 0));
+  const makeQty = Math.max(0, Math.abs(classifiedTrade.makeQty ?? quantity - takeQty));
+
+  if (takeQty > 0) {
+    cache.ownTakeTrades.push([
+      trade.timestamp,
+      trade.price,
+      {
+        side: 'own',
+        executionType: 'own_take',
+        buyer: trade.buyer,
+        seller: trade.seller,
+        quantity: takeQty,
+        price: trade.price,
+        takeQty,
+        makeQty,
+        bookMatchedQty: takeQty,
+      },
+    ]);
+  }
+
+  if (makeQty > 0) {
+    cache.ownMakeTrades.push([
+      trade.timestamp,
+      trade.price,
+      {
+        side: 'own',
+        executionType: 'own_make',
+        buyer: trade.buyer,
+        seller: trade.seller,
+        quantity: makeQty,
+        price: trade.price,
+        takeQty,
+        makeQty,
+        bookMatchedQty: takeQty,
+      },
+    ]);
+  }
 }
 
 export function collectProductSeries(
   algorithmRows: AlgorithmDataRow[],
   activityLogs: ActivityLogRow[],
+  classifiedTrades: ClassifiedTrade[],
 ): Record<string, ProductSeriesCache> {
   const productCaches: Record<string, ProductSeriesCache> = {};
 
@@ -164,67 +198,12 @@ export function collectProductSeries(
     for (const [product, position] of Object.entries(row.state.position)) {
       ensureCache(productCaches, product).position.push([timestamp, position]);
     }
+  }
 
-    for (const [product, trades] of Object.entries(row.state.ownTrades)) {
-      const cache = productCaches[product];
-      if (!cache) continue;
-      for (const trade of trades) {
-        const { takeQty, makeQty } = classifyOwnTrade(trade, row.state.orderDepths[product]);
-        if (takeQty > 0) {
-          cache.ownTakeTrades.push([
-            trade.timestamp,
-            trade.price,
-            {
-              side: 'own',
-              executionType: 'own_take',
-              buyer: trade.buyer,
-              seller: trade.seller,
-              quantity: takeQty,
-              price: trade.price,
-              takeQty,
-              makeQty,
-              bookMatchedQty: takeQty,
-            },
-          ]);
-        }
-        if (makeQty > 0) {
-          cache.ownMakeTrades.push([
-            trade.timestamp,
-            trade.price,
-            {
-              side: 'own',
-              executionType: 'own_make',
-              buyer: trade.buyer,
-              seller: trade.seller,
-              quantity: makeQty,
-              price: trade.price,
-              takeQty,
-              makeQty,
-              bookMatchedQty: takeQty,
-            },
-          ]);
-        }
-      }
-    }
-
-    for (const [product, trades] of Object.entries(row.state.marketTrades)) {
-      const cache = productCaches[product];
-      if (!cache) continue;
-      for (const trade of trades) {
-        cache.marketTrades.push([
-          trade.timestamp,
-          trade.price,
-          {
-            side: 'market',
-            executionType: 'market',
-            buyer: trade.buyer,
-            seller: trade.seller,
-            quantity: trade.quantity,
-            price: trade.price,
-          },
-        ]);
-      }
-    }
+  for (const classifiedTrade of classifiedTrades) {
+    const product = classifiedTrade.trade.symbol;
+    const cache = ensureCache(productCaches, product);
+    addClassifiedTradeToCache(cache, classifiedTrade);
   }
 
   for (const cache of Object.values(productCaches)) {

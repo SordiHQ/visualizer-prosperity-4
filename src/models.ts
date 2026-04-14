@@ -19,6 +19,7 @@ export interface AlgorithmSummary {
 
 export type Time = number;
 export type ProsperitySymbol = string;
+export type ProsperityCurrency = string;
 export type Product = string;
 export type Position = number;
 export type UserId = string;
@@ -34,15 +35,7 @@ export interface ParsedJsonLogs {
   submissionId?: string;
   activitiesLog: string;
   logs?: Array<AlgoLogs>;
-  tradeHistory?: Array<{
-    timestamp: number;
-    buyer: string;
-    seller: string;
-    symbol: string;
-    currency: string;
-    price: number;
-    quantity: number;
-  }>;
+  tradeHistory?: Array<Trade>;
 }
 
 export interface ActivityLogRow {
@@ -94,12 +87,19 @@ export interface OrderDepth {
 }
 
 export interface Trade {
-  symbol: ProsperitySymbol;
-  price: number;
-  quantity: number;
+  timestamp: Time;
   buyer: UserId;
   seller: UserId;
-  timestamp: Time;
+  symbol: ProsperitySymbol;
+  currency?: ProsperityCurrency;
+  price: number;
+  quantity: number;
+}
+export interface ClassifiedTrade {
+  trade: Trade;
+  side: 'own' | 'market';
+  takeQty?: number;
+  makeQty?: number;
 }
 
 export interface TradingState {
@@ -107,8 +107,8 @@ export interface TradingState {
   traderData: string;
   listings: Record<ProsperitySymbol, Listing>;
   orderDepths: Record<ProsperitySymbol, OrderDepth>;
-  ownTrades: Record<ProsperitySymbol, Trade[]>;
-  marketTrades: Record<ProsperitySymbol, Trade[]>;
+  ownTrades: Record<ProsperitySymbol, Trade[]>; // FIXME: remove this? not used for visualization (tradeHistory is used instead)
+  marketTrades: Record<ProsperitySymbol, Trade[]>; // FIXME: remove this? not used for visualization (tradeHistory is used instead)
   position: Record<Product, Position>;
   observations: Observation;
 }
@@ -131,6 +131,7 @@ export interface Algorithm {
   source?: AlgorithmSource;
   submissionId?: string;
   warnings?: string[];
+  marketTrades: ClassifiedTrade[]; // FIXME: maybe it should be optional for backward compatibility
 }
 
 export type CompressedListing = [symbol: ProsperitySymbol, product: Product, denomination: Product | number];

@@ -56,13 +56,17 @@ export function getActivityLogsFromParsedJson(logs: ParsedJsonLogs): ActivityLog
         profitLoss: Number(columns[16]),
       };
     })
-    .filter(
-      row =>
-        Number.isFinite(row.day) &&
-        Number.isFinite(row.timestamp) &&
-        typeof row.product === 'string' &&
-        row.product.length > 0,
-    );
+    .map(row => {
+      if (
+        !Number.isFinite(row.day) ||
+        !Number.isFinite(row.timestamp) ||
+        typeof row.product !== 'string' ||
+        row.product.length === 0
+      ) {
+        throw new Error(`Invalid activity log row detected: ${JSON.stringify(row)}`);
+      }
+      return row;
+    });
 }
 
 function getColumnValues(columns: string[], indices: number[]): number[] {
@@ -118,12 +122,13 @@ function decompressTrades(compressed: CompressedTrade[]): Record<ProsperitySymbo
     }
 
     trades[symbol].push({
-      symbol,
-      price,
-      quantity,
-      buyer,
-      seller,
-      timestamp,
+      symbol: symbol,
+      // currency: 'NaN', // FIXME: correct this, hardocded because not important here
+      price: price,
+      quantity: quantity,
+      buyer: buyer,
+      seller: seller,
+      timestamp: timestamp,
     });
   }
 
@@ -249,4 +254,8 @@ export function getAlgorithmDataFromJson(allLogs: ParsedJsonLogs): AlgorithmData
   }
 
   return rows;
+}
+
+export function getMarketTradesFromJson(allLogs: ParsedJsonLogs): Trade[] {
+  return allLogs.tradeHistory ?? [];
 }
