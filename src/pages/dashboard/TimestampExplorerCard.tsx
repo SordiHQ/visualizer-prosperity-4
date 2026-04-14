@@ -2,14 +2,14 @@ import { Slider, Stack, Text } from '@mantine/core';
 import { ReactNode } from 'react';
 import { formatNumber } from '../../utils/format.ts';
 import { VisualizerCard } from '../visualizer/VisualizerCard.tsx';
-import { TradePointMeta } from './dashboardTypes.ts';
+import { DashboardTradePoint } from './dashboardTypes.ts';
 import { formatTradeLine } from './dashboardUtils.ts';
 
 interface TimestampExplorerCardProps {
   timestamps: number[];
   step: number;
   effectiveTimestamp: number | null;
-  hoveredTradeDetails: TradePointMeta[];
+  hoveredTradeDetails: DashboardTradePoint[];
   onTimestampChange: (value: number) => void;
 }
 

@@ -3,10 +3,8 @@ import { ActivityLogRow, AlgorithmDataRow, ClassifiedTrade } from '../../models.
 import { formatNumber } from '../../utils/format.ts';
 import {
   DashboardFiltersState,
+  DashboardTradePoint,
   ProductSeriesCache,
-  TradePoint,
-  TradePointMeta,
-  TradeTooltipMeta,
 } from './dashboardTypes.ts';
 
 export function findClosestTimestamp(timestamps: number[], target: number): number {
@@ -73,17 +71,18 @@ export function parseTraderIdList(value: string): Set<string> {
 }
 
 function includeTrade(
-  meta: TradePointMeta,
+  point: DashboardTradePoint,
   includeIds: Set<string>,
   excludeIds: Set<string>,
   minQty: number,
   maxQty: number,
 ): boolean {
-  if (meta.quantity < minQty || meta.quantity > maxQty) {
+  if (point.quantity < minQty || point.quantity > maxQty) {
     return false;
   }
 
-  if (excludeIds.has(meta.buyer) || excludeIds.has(meta.seller)) {
+  const { buyer, seller } = point.classifiedTrade.trade;
+  if (excludeIds.has(buyer) || excludeIds.has(seller)) {
     return false;
   }
 
@@ -91,7 +90,7 @@ function includeTrade(
     return true;
   }
 
-  return includeIds.has(meta.buyer) || includeIds.has(meta.seller);
+  return includeIds.has(buyer) || includeIds.has(seller);
 }
 
 function ensureCache(productCaches: Record<string, ProductSeriesCache>, product: string): ProductSeriesCache {
@@ -117,58 +116,32 @@ function addClassifiedTradeToCache(cache: ProductSeriesCache, classifiedTrade: C
   const quantity = Math.abs(trade.quantity);
 
   if (classifiedTrade.side === 'market') {
-    cache.marketTrades.push([
-      trade.timestamp,
-      trade.price,
-      {
-        side: 'market',
-        executionType: 'market',
-        buyer: trade.buyer,
-        seller: trade.seller,
-        quantity,
-        price: trade.price,
-      },
-    ]);
+    cache.marketTrades.push({
+      classifiedTrade,
+      executionType: 'market',
+      quantity,
+    });
     return;
   }
 
+  // this sare not empty since they are empty only if it is a market trade (not own trade)
   const takeQty = Math.max(0, Math.abs(classifiedTrade.takeQty ?? 0));
-  const makeQty = Math.max(0, Math.abs(classifiedTrade.makeQty ?? quantity - takeQty));
+  const makeQty = Math.max(0, Math.abs(classifiedTrade.makeQty ?? 0));
 
   if (takeQty > 0) {
-    cache.ownTakeTrades.push([
-      trade.timestamp,
-      trade.price,
-      {
-        side: 'own',
-        executionType: 'own_take',
-        buyer: trade.buyer,
-        seller: trade.seller,
-        quantity: takeQty,
-        price: trade.price,
-        takeQty,
-        makeQty,
-        bookMatchedQty: takeQty,
-      },
-    ]);
+    cache.ownTakeTrades.push({
+      classifiedTrade,
+      executionType: 'own_take',
+      quantity: takeQty,
+    });
   }
 
   if (makeQty > 0) {
-    cache.ownMakeTrades.push([
-      trade.timestamp,
-      trade.price,
-      {
-        side: 'own',
-        executionType: 'own_make',
-        buyer: trade.buyer,
-        seller: trade.seller,
-        quantity: makeQty,
-        price: trade.price,
-        takeQty,
-        makeQty,
-        bookMatchedQty: takeQty,
-      },
-    ]);
+    cache.ownMakeTrades.push({
+      classifiedTrade,
+      executionType: 'own_make',
+      quantity: makeQty,
+    });
   }
 }
 
@@ -182,9 +155,11 @@ export function collectProductSeries(
   for (const row of activityLogs) {
     const cache = ensureCache(productCaches, row.product);
     cache.timestamps.push(row.timestamp);
+    // FIXME: if the midprice is NONE calculate it (?)
     cache.midPrice.push([row.timestamp, row.midPrice]);
     cache.pnl.push([row.timestamp, row.profitLoss]);
 
+    // FIXME: check orders and index? (should be correct)
     for (let i = 0; i < Math.min(3, row.bidPrices.length); i++) {
       cache.bidSeries[2 - i].push([row.timestamp, row.bidPrices[i]]);
     }
@@ -209,9 +184,9 @@ export function collectProductSeries(
   for (const cache of Object.values(productCaches)) {
     cache.timestamps.sort((a, b) => a - b);
     cache.position.sort((a, b) => a[0] - b[0]);
-    cache.ownTakeTrades.sort((a, b) => a[0] - b[0]);
-    cache.ownMakeTrades.sort((a, b) => a[0] - b[0]);
-    cache.marketTrades.sort((a, b) => a[0] - b[0]);
+    cache.ownTakeTrades.sort((a, b) => a.classifiedTrade.trade.timestamp - b.classifiedTrade.trade.timestamp);
+    cache.ownMakeTrades.sort((a, b) => a.classifiedTrade.trade.timestamp - b.classifiedTrade.trade.timestamp);
+    cache.marketTrades.sort((a, b) => a.classifiedTrade.trade.timestamp - b.classifiedTrade.trade.timestamp);
   }
 
   return productCaches;
@@ -221,10 +196,10 @@ export function getDisplayedTrades(
   cache: ProductSeriesCache | null,
   filters: DashboardFiltersState,
 ): {
-  filteredOwnTakeTrades: TradePoint[];
-  filteredOwnMakeTrades: TradePoint[];
-  filteredMarketTrades: TradePoint[];
-  displayedTrades: TradePoint[];
+  filteredOwnTakeTrades: DashboardTradePoint[];
+  filteredOwnMakeTrades: DashboardTradePoint[];
+  filteredMarketTrades: DashboardTradePoint[];
+  displayedTrades: DashboardTradePoint[];
 } {
   if (!cache) {
     return { filteredOwnTakeTrades: [], filteredOwnMakeTrades: [], filteredMarketTrades: [], displayedTrades: [] };
@@ -234,16 +209,16 @@ export function getDisplayedTrades(
   const excludeIds = parseTraderIdList(filters.excludeTraderIds);
 
   const filteredOwnTakeTrades = cache.ownTakeTrades.filter(point =>
-    includeTrade(point[2], includeIds, excludeIds, filters.minQuantity, filters.maxQuantity),
+    includeTrade(point, includeIds, excludeIds, filters.minQuantity, filters.maxQuantity),
   );
   const filteredOwnMakeTrades = cache.ownMakeTrades.filter(point =>
-    includeTrade(point[2], includeIds, excludeIds, filters.minQuantity, filters.maxQuantity),
+    includeTrade(point, includeIds, excludeIds, filters.minQuantity, filters.maxQuantity),
   );
   const filteredMarketTrades = cache.marketTrades.filter(point =>
-    includeTrade(point[2], includeIds, excludeIds, filters.minQuantity, filters.maxQuantity),
+    includeTrade(point, includeIds, excludeIds, filters.minQuantity, filters.maxQuantity),
   );
 
-  const displayedTrades: TradePoint[] = [];
+  const displayedTrades: DashboardTradePoint[] = [];
   if (filters.showOwnTrades) {
     displayedTrades.push(...filteredOwnTakeTrades);
     displayedTrades.push(...filteredOwnMakeTrades);
@@ -253,20 +228,22 @@ export function getDisplayedTrades(
   return { filteredOwnTakeTrades, filteredOwnMakeTrades, filteredMarketTrades, displayedTrades };
 }
 
-export function getTradesAtTimestamp(trades: TradePoint[], timestamp: number): TradePointMeta[] {
-  return trades.filter(point => point[0] === timestamp).map(point => point[2]);
+export function getTradesAtTimestamp(trades: DashboardTradePoint[], timestamp: number): DashboardTradePoint[] {
+  return trades.filter(point => point.classifiedTrade.trade.timestamp === timestamp);
 }
 
-export function formatTradeLine(meta: TradePointMeta): string {
-  return `${meta.executionType.toUpperCase()} ${meta.quantity}@${formatNumber(meta.price)} (${meta.buyer} -> ${meta.seller})`;
+export function formatTradeLine(point: DashboardTradePoint): string {
+  const { trade } = point.classifiedTrade;
+  return `${point.executionType.toUpperCase()} ${point.quantity}@${formatNumber(trade.price)} (${trade.buyer} -> ${trade.seller})`;
 }
 
-export function formatTradeHoverFields(meta: TradeTooltipMeta): string {
+export function formatTradeHoverFields(point: DashboardTradePoint): string {
+  const { trade } = point.classifiedTrade;
   return [
-    `price: <b>${formatNumber(meta.price)}</b>`,
-    `quantity: <b>${formatNumber(meta.quantity)}</b>`,
-    `buyer: <b>${meta.buyer}</b>`,
-    `seller: <b>${meta.seller}</b>`,
+    `price: <b>${formatNumber(trade.price)}</b>`,
+    `quantity: <b>${formatNumber(point.quantity)}</b>`,
+    `buyer: <b>${trade.buyer}</b>`,
+    `seller: <b>${trade.seller}</b>`,
   ].join('<br/>');
 }
 
@@ -300,16 +277,16 @@ export function formatProductLogs(row: AlgorithmDataRow, product: string): strin
   return result.join('\n');
 }
 
-export function toScatterData(points: TradePoint[]): Highcharts.PointOptionsObject[] {
+export function toScatterData(points: DashboardTradePoint[]): Highcharts.PointOptionsObject[] {
   const getRadius = (quantity: number): number => {
     const radius = 3 + Math.sqrt(Math.max(0, quantity));
     return Math.max(3, Math.min(14, radius));
   };
 
   return points.map(point => ({
-    x: point[0],
-    y: point[1],
-    custom: { ...point[2], timestamp: point[0] },
-    marker: point[2].executionType === 'market' ? { radius: getRadius(point[2].quantity) } : undefined,
+    x: point.classifiedTrade.trade.timestamp,
+    y: point.classifiedTrade.trade.price,
+    custom: point,
+    marker: point.executionType === 'market' ? { radius: getRadius(point.quantity) } : undefined,
   }));
 }

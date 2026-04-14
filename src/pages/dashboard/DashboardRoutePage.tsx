@@ -9,7 +9,7 @@ import { formatNumber } from '../../utils/format.ts';
 import { Chart } from '../visualizer/Chart.tsx';
 import { VisualizerCard } from '../visualizer/VisualizerCard.tsx';
 import { DashboardFiltersCard } from './DashboardFiltersCard.tsx';
-import { DashboardFiltersState, ProductSeriesCache, TradePointMeta, TradeTooltipMeta } from './dashboardTypes.ts';
+import { DashboardFiltersState, DashboardTradePoint, ProductSeriesCache } from './dashboardTypes.ts';
 import {
   collectProductSeries,
   downsamplePoints,
@@ -43,12 +43,12 @@ const defaultFilters: DashboardFiltersState = {
   maxPoints: 5000,
 };
 
-function formatTradeTooltipHtml(color: string, seriesName: string, custom: TradeTooltipMeta): string {
+function formatTradeTooltipHtml(color: string, seriesName: string, custom: DashboardTradePoint): string {
   return `<span style="color:${color}">\u25CF</span> ${seriesName}: <br/> ${formatTradeHoverFields(custom)}<br/>`;
 }
 
 function tradePointFormatter(this: Highcharts.Point): string {
-  const custom = (this.options as any).custom as TradeTooltipMeta | undefined;
+  const custom = (this.options as any).custom as DashboardTradePoint | undefined;
   if (!custom) {
     return `<span style="color:${this.color}">\u25CF</span> ${this.series.name}: <br/> <b>no trade details</b><br/>`;
   }
@@ -58,9 +58,9 @@ function tradePointFormatter(this: Highcharts.Point): string {
 function buildPriceChartSeries(
   productCache: ProductSeriesCache | null,
   filters: DashboardFiltersState,
-  filteredOwnTakeTrades: Array<[number, number, TradePointMeta]>,
-  filteredOwnMakeTrades: Array<[number, number, TradePointMeta]>,
-  filteredMarketTrades: Array<[number, number, TradePointMeta]>,
+  filteredOwnTakeTrades: DashboardTradePoint[],
+  filteredOwnMakeTrades: DashboardTradePoint[],
+  filteredMarketTrades: DashboardTradePoint[],
 ): Highcharts.SeriesOptionsType[] {
   if (!productCache) return [];
   const series: Highcharts.SeriesOptionsType[] = [];
@@ -103,12 +103,18 @@ function buildPriceChartSeries(
   if (filters.showOwnTrades) {
     const ownTakeData = toScatterData(filteredOwnTakeTrades).map(point => ({
       ...point,
-      color: point.custom?.seller === 'SUBMISSION' ? OWN_TRADE_TAKE_COLOR_SELL_FILL : OWN_TRADE_TAKE_COLOR_BUY_FILL,
+      color:
+        point.custom?.classifiedTrade.trade.seller === 'SUBMISSION'
+          ? OWN_TRADE_TAKE_COLOR_SELL_FILL
+          : OWN_TRADE_TAKE_COLOR_BUY_FILL,
     }));
 
     const ownMakeData = toScatterData(filteredOwnMakeTrades).map(point => ({
       ...point,
-      color: point.custom?.seller === 'SUBMISSION' ? OWN_TRADE_MAKE_COLOR_SELL_FILL : OWN_TRADE_MAKE_COLOR_BUY_FILL,
+      color:
+        point.custom?.classifiedTrade.trade.seller === 'SUBMISSION'
+          ? OWN_TRADE_MAKE_COLOR_SELL_FILL
+          : OWN_TRADE_MAKE_COLOR_BUY_FILL,
     }));
 
     series.push({
@@ -197,7 +203,7 @@ function getPriceChartOptions(): Highcharts.Options {
         // Highcharts may call formatter with a single point context (no this.points).
         // In that case, we still render the hovered datapoint details.
         if (points.length === 0 && this.point) {
-          const singleCustom = (this.point.options as any).custom as TradeTooltipMeta | undefined;
+          const singleCustom = (this.point.options as any).custom as DashboardTradePoint | undefined;
           if (singleCustom) {
             return `${header}${formatTradeTooltipHtml(String(this.color), this.series.name, singleCustom)}`;
           }
@@ -210,7 +216,7 @@ function getPriceChartOptions(): Highcharts.Options {
         const body = points
           .map(point => {
             if (point.series.type === 'scatter') {
-              const custom = (point.point.options as any).custom as TradeTooltipMeta | undefined;
+              const custom = (point.point.options as any).custom as DashboardTradePoint | undefined;
               if (!custom) return '';
               return formatTradeTooltipHtml(String(point.color), point.series.name, custom);
             }
