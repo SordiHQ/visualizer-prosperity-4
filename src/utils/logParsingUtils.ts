@@ -22,7 +22,7 @@ import {
 
 export function extractJsonLogs(logs: string): ParsedJsonLogs {
   try {
-    const parsed = JSON.parse(logs);
+    const parsed = typeof logs === 'string' ? JSON.parse(logs) : logs;
     if (typeof parsed?.activitiesLog === 'string') {
       return parsed as ParsedJsonLogs;
     }
