@@ -107,14 +107,6 @@ export function DashboardFiltersCard({
             setFilters(prev => ({ ...prev, showPnlOverlay: checked }));
           }}
         />
-        <Checkbox
-          label="Overlay position"
-          checked={filters.showPositionOverlay}
-          onChange={event => {
-            const checked = event.currentTarget.checked;
-            setFilters(prev => ({ ...prev, showPositionOverlay: checked }));
-          }}
-        />
       </Stack>
     </VisualizerCard>
   );

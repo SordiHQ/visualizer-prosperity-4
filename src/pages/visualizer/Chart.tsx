@@ -5,7 +5,7 @@ import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsHighContrastDarkTheme from 'highcharts/themes/high-contrast-dark';
 import HighchartsReact from 'highcharts-react-official';
 import merge from 'lodash/merge';
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useEffect, useMemo, useRef } from 'react';
 import { useActualColorScheme } from '../../hooks/use-actual-color-scheme.ts';
 import { useStore } from '../../store.ts';
 import { formatNumber } from '../../utils/format.ts';
@@ -55,6 +55,7 @@ export function Chart({ title, options, series, min, max }: ChartProps): ReactNo
   const colorScheme = useActualColorScheme();
   const selectedTimestamp = useStore(state => state.selectedTimestamp);
   const setSelectedTimestamp = useStore(state => state.setSelectedTimestamp);
+  const chartRef = useRef<HighchartsReact.RefObject>(null);
 
   const fullOptions = useMemo((): Highcharts.Options => {
     const themeOptions = colorScheme === 'light' ? {} : getThemeOptions(HighchartsHighContrastDarkTheme);
@@ -133,18 +134,6 @@ export function Chart({ title, options, series, min, max }: ChartProps): ReactNo
         title: {
           text: 'Timestamp',
         },
-        plotLines:
-          selectedTimestamp === null
-            ? []
-            : [
-                {
-                  value: selectedTimestamp,
-                  color: '#d9480f',
-                  width: 1,
-                  zIndex: 5,
-                  dashStyle: 'Dash',
-                },
-              ],
         crosshair: {
           width: 1,
         },
@@ -180,11 +169,38 @@ export function Chart({ title, options, series, min, max }: ChartProps): ReactNo
     };
 
     return merge(themeOptions, chartOptions);
-  }, [colorScheme, title, options, series, min, max, selectedTimestamp, setSelectedTimestamp]);
+  }, [colorScheme, title, options, series, min, max, setSelectedTimestamp]);
+
+  useEffect(() => {
+    const chart = chartRef.current?.chart;
+    const xAxis = chart?.xAxis?.[0];
+    if (!chart || !xAxis) {
+      return;
+    }
+
+    xAxis.removePlotLine('selected-timestamp');
+    if (selectedTimestamp !== null) {
+      xAxis.addPlotLine({
+        id: 'selected-timestamp',
+        value: selectedTimestamp,
+        color: '#d9480f',
+        width: 1,
+        zIndex: 5,
+        dashStyle: 'Dash',
+      });
+    }
+    chart.redraw(false);
+  }, [selectedTimestamp]);
 
   return (
     <VisualizerCard p={0}>
-      <HighchartsReact highcharts={Highcharts} constructorType={'stockChart'} options={fullOptions} immutable />
+      <HighchartsReact
+        ref={chartRef}
+        highcharts={Highcharts}
+        constructorType={'stockChart'}
+        options={fullOptions}
+        immutable={false}
+      />
     </VisualizerCard>
   );
 }

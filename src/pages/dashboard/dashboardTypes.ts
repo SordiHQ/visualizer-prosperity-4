@@ -1,24 +1,13 @@
-import { SeriesScatterOptions } from 'highcharts';
+import { ClassifiedTrade } from '../../models.ts';
 
 export type TradeExecutionType = 'own_take' | 'own_make' | 'market';
 
-export interface TradePointMeta {
-  side: 'own' | 'market';
+export interface DashboardTradePoint {
+  classifiedTrade: ClassifiedTrade;
   executionType: TradeExecutionType;
-  buyer: string;
-  seller: string;
   quantity: number;
-  price: number;
-  takeQty?: number;
-  makeQty?: number;
-  bookMatchedQty?: number;
 }
 
-export interface TradeTooltipMeta extends TradePointMeta {
-  timestamp: number;
-}
-
-export type TradePoint = [number, number, TradePointMeta];
 export type XYPoint = [number, number];
 
 export interface ProductSeriesCache {
@@ -28,10 +17,9 @@ export interface ProductSeriesCache {
   bidSeries: XYPoint[][];
   askSeries: XYPoint[][];
   pnl: XYPoint[];
-  position: XYPoint[];
-  ownTakeTrades: TradePoint[];
-  ownMakeTrades: TradePoint[];
-  marketTrades: TradePoint[];
+  ownTakeTrades: DashboardTradePoint[];
+  ownMakeTrades: DashboardTradePoint[];
+  marketTrades: DashboardTradePoint[];
 }
 
 export interface DashboardFiltersState {
@@ -40,14 +28,9 @@ export interface DashboardFiltersState {
   showMarketTrades: boolean;
   showMidPrice: boolean;
   showPnlOverlay: boolean;
-  showPositionOverlay: boolean;
   minQuantity: number;
   maxQuantity: number;
   includeTraderIds: string;
   excludeTraderIds: string;
   maxPoints: number;
 }
-
-export type TradeScatterSeries = SeriesScatterOptions & {
-  data: Array<{ x: number; y: number; custom: TradePointMeta }>;
-};

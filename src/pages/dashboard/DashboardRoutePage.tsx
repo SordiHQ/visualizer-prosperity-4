@@ -2,26 +2,30 @@ import { Alert, Container, Grid, Group, Text, Title } from '@mantine/core';
 import Highcharts from 'highcharts';
 import { ReactNode, useMemo, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AlgorithmDataRow } from '../../models.ts';
 import { useStore } from '../../store.ts';
 import { getAskColor, getBidColor } from '../../utils/colors.ts';
 import { formatNumber } from '../../utils/format.ts';
 import { Chart } from '../visualizer/Chart.tsx';
 import { VisualizerCard } from '../visualizer/VisualizerCard.tsx';
 import { DashboardFiltersCard } from './DashboardFiltersCard.tsx';
-import { DashboardFiltersState, ProductSeriesCache, TradePointMeta, TradeTooltipMeta } from './dashboardTypes.ts';
+import { DashboardFiltersState, DashboardTradePoint, ProductSeriesCache } from './dashboardTypes.ts';
 import {
   collectProductSeries,
   downsamplePoints,
   findClosestTimestamp,
-  formatProductLogs,
   formatTradeHoverFields,
   getDisplayedTrades,
   getTradesAtTimestamp,
   toScatterData,
 } from './dashboardUtils.ts';
-import { LogViewerCard } from './LogViewerCard.tsx';
 import { TimestampExplorerCard } from './TimestampExplorerCard.tsx';
+
+const TIMESTAMP_STEP = 100;
+const OWN_TRADE_TAKE_COLOR_SELL_FILL = 'blue';
+const OWN_TRADE_MAKE_COLOR_SELL_FILL = 'cyan';
+
+const OWN_TRADE_TAKE_COLOR_BUY_FILL = 'orange';
+const OWN_TRADE_MAKE_COLOR_BUY_FILL = 'yellow'; //amber #ffbf00 FIXME: find something similar that allows to see also in LIGHT MODE (yellow is BAD)
 
 const defaultFilters: DashboardFiltersState = {
   showOrderBookLevels: true,
@@ -29,7 +33,6 @@ const defaultFilters: DashboardFiltersState = {
   showMarketTrades: true,
   showMidPrice: true,
   showPnlOverlay: false,
-  showPositionOverlay: false,
   minQuantity: 0,
   maxQuantity: 50,
   includeTraderIds: '',
@@ -37,12 +40,12 @@ const defaultFilters: DashboardFiltersState = {
   maxPoints: 5000,
 };
 
-function formatTradeTooltipHtml(color: string, seriesName: string, custom: TradeTooltipMeta): string {
+function formatTradeTooltipHtml(color: string, seriesName: string, custom: DashboardTradePoint): string {
   return `<span style="color:${color}">\u25CF</span> ${seriesName}: <br/> ${formatTradeHoverFields(custom)}<br/>`;
 }
 
 function tradePointFormatter(this: Highcharts.Point): string {
-  const custom = (this.options as any).custom as TradeTooltipMeta | undefined;
+  const custom = (this.options as any).custom as DashboardTradePoint | undefined;
   if (!custom) {
     return `<span style="color:${this.color}">\u25CF</span> ${this.series.name}: <br/> <b>no trade details</b><br/>`;
   }
@@ -52,9 +55,9 @@ function tradePointFormatter(this: Highcharts.Point): string {
 function buildPriceChartSeries(
   productCache: ProductSeriesCache | null,
   filters: DashboardFiltersState,
-  filteredOwnTakeTrades: Array<[number, number, TradePointMeta]>,
-  filteredOwnMakeTrades: Array<[number, number, TradePointMeta]>,
-  filteredMarketTrades: Array<[number, number, TradePointMeta]>,
+  filteredOwnTakeTrades: DashboardTradePoint[],
+  filteredOwnMakeTrades: DashboardTradePoint[],
+  filteredMarketTrades: DashboardTradePoint[],
 ): Highcharts.SeriesOptionsType[] {
   if (!productCache) return [];
   const series: Highcharts.SeriesOptionsType[] = [];
@@ -95,22 +98,38 @@ function buildPriceChartSeries(
   }
 
   if (filters.showOwnTrades) {
+    const ownTakeData = toScatterData(filteredOwnTakeTrades).map(point => ({
+      ...point,
+      color:
+        point.custom?.classifiedTrade.trade.seller === 'SUBMISSION'
+          ? OWN_TRADE_TAKE_COLOR_SELL_FILL
+          : OWN_TRADE_TAKE_COLOR_BUY_FILL,
+    }));
+
+    const ownMakeData = toScatterData(filteredOwnMakeTrades).map(point => ({
+      ...point,
+      color:
+        point.custom?.classifiedTrade.trade.seller === 'SUBMISSION'
+          ? OWN_TRADE_MAKE_COLOR_SELL_FILL
+          : OWN_TRADE_MAKE_COLOR_BUY_FILL,
+    }));
+
     series.push({
       type: 'scatter',
-      name: 'Own trades (take)',
-      color: '#f08c00',
-      marker: { symbol: 'cross', radius: 4 },
-      data: toScatterData(filteredOwnTakeTrades),
+      name: 'TAKE Own trades',
+      color: 'gray',
+      marker: { symbol: 'circle', radius: 4 },
+      data: ownTakeData,
       tooltip: {
         pointFormatter: tradePointFormatter,
       },
     });
     series.push({
       type: 'scatter',
-      name: 'Own trades (make)',
-      color: '#fab005',
-      marker: { symbol: 'diamond', radius: 4 },
-      data: toScatterData(filteredOwnMakeTrades),
+      name: 'MAKE Own trades',
+      color: 'gray',
+      marker: { symbol: 'diamond', radius: 5 },
+      data: ownMakeData,
       tooltip: {
         pointFormatter: tradePointFormatter,
       },
@@ -121,8 +140,8 @@ function buildPriceChartSeries(
     series.push({
       type: 'scatter',
       name: 'Market trades',
-      color: '#7c2d12',
-      marker: { symbol: 'circle', radius: 3 },
+      color: 'magenta',
+      marker: { symbol: 'triangle', radius: 6 },
       data: toScatterData(filteredMarketTrades),
       tooltip: {
         pointFormatter: tradePointFormatter,
@@ -142,25 +161,22 @@ function buildPriceChartSeries(
     });
   }
 
-  if (filters.showPositionOverlay) {
-    series.push({
-      type: 'line',
-      name: 'Position',
-      yAxis: 1,
-      color: '#1c7ed6',
-      dashStyle: 'ShortDot',
-      data: productCache.position,
-      marker: { enabled: false },
-    });
-  }
-
   return series;
 }
 
-function getPriceChartOptions(): Highcharts.Options {
+function getPriceChartOptions(onSelectTimestamp: (timestamp: number) => void): Highcharts.Options {
   return {
     plotOptions: {
       series: {
+        point: {
+          events: {
+            click(this: Highcharts.Point) {
+              if (typeof this.x === 'number') {
+                onSelectTimestamp(this.x);
+              }
+            },
+          },
+        },
         dataGrouping: {
           enabled: false,
         },
@@ -168,7 +184,7 @@ function getPriceChartOptions(): Highcharts.Options {
     },
     yAxis: [
       { title: { text: 'Price' }, opposite: false, allowDecimals: true },
-      { title: { text: 'P/L & Position' }, opposite: true, allowDecimals: true },
+      { title: { text: 'P/L' }, opposite: true, allowDecimals: true },
     ],
     tooltip: {
       shared: true,
@@ -181,7 +197,7 @@ function getPriceChartOptions(): Highcharts.Options {
         // Highcharts may call formatter with a single point context (no this.points).
         // In that case, we still render the hovered datapoint details.
         if (points.length === 0 && this.point) {
-          const singleCustom = (this.point.options as any).custom as TradeTooltipMeta | undefined;
+          const singleCustom = (this.point.options as any).custom as DashboardTradePoint | undefined;
           if (singleCustom) {
             return `${header}${formatTradeTooltipHtml(String(this.color), this.series.name, singleCustom)}`;
           }
@@ -194,7 +210,7 @@ function getPriceChartOptions(): Highcharts.Options {
         const body = points
           .map(point => {
             if (point.series.type === 'scatter') {
-              const custom = (point.point.options as any).custom as TradeTooltipMeta | undefined;
+              const custom = (point.point.options as any).custom as DashboardTradePoint | undefined;
               if (!custom) return '';
               return formatTradeTooltipHtml(String(point.color), point.series.name, custom);
             }
@@ -218,35 +234,15 @@ export function DashboardRoutePage(): ReactNode {
   if (algorithm === null) return <Navigate to={`/${search}`} />;
 
   const productsByCache = useMemo(
-    () => collectProductSeries(algorithm.data, algorithm.activityLogs, algorithm.marketTrades),
-    [algorithm.activityLogs, algorithm.data, algorithm.marketTrades],
+    () => collectProductSeries(algorithm.activityLogs, algorithm.marketTrades),
+    [algorithm.activityLogs, algorithm.marketTrades],
   );
   const products = useMemo(() => Object.keys(productsByCache).sort((a, b) => a.localeCompare(b)), [productsByCache]);
   const effectiveProduct =
     selectedProduct && productsByCache[selectedProduct] ? selectedProduct : (products[0] ?? null);
   const productCache = effectiveProduct ? productsByCache[effectiveProduct] : null;
 
-  const rowsByTimestamp = useMemo(() => {
-    const rows: Record<number, AlgorithmDataRow> = {};
-    for (const row of algorithm.data) rows[row.state.timestamp] = row;
-    return rows;
-  }, [algorithm.data]);
-
-  const algorithmTimestamps = useMemo(() => algorithm.data.map(row => row.state.timestamp), [algorithm.data]);
   const productTimelineTimestamps = useMemo(() => (productCache ? [...productCache.timestamps] : []), [productCache]);
-  const productTimelineStep = useMemo(() => {
-    if (productTimelineTimestamps.length < 2) {
-      return 1;
-    }
-    let minPositiveDiff = Number.POSITIVE_INFINITY;
-    for (let i = 1; i < productTimelineTimestamps.length; i++) {
-      const diff = productTimelineTimestamps[i] - productTimelineTimestamps[i - 1];
-      if (diff > 0 && diff < minPositiveDiff) {
-        minPositiveDiff = diff;
-      }
-    }
-    return Number.isFinite(minPositiveDiff) ? Math.max(1, minPositiveDiff) : 1;
-  }, [productTimelineTimestamps]);
 
   const effectiveTimestamp = useMemo(() => {
     if (productTimelineTimestamps.length === 0) return null;
@@ -263,7 +259,7 @@ export function DashboardRoutePage(): ReactNode {
       buildPriceChartSeries(productCache, filters, filteredOwnTakeTrades, filteredOwnMakeTrades, filteredMarketTrades),
     [productCache, filters, filteredOwnTakeTrades, filteredOwnMakeTrades, filteredMarketTrades],
   );
-  const priceChartOptions = useMemo(() => getPriceChartOptions(), []);
+  const priceChartOptions = useMemo(() => getPriceChartOptions(setSelectedTimestamp), [setSelectedTimestamp]);
 
   const pnlSeries = useMemo<Highcharts.SeriesOptionsType[]>(
     () =>
@@ -272,26 +268,11 @@ export function DashboardRoutePage(): ReactNode {
         : [],
     [productCache, filters.maxPoints],
   );
-  const positionSeries = useMemo<Highcharts.SeriesOptionsType[]>(
-    () =>
-      productCache
-        ? [{ type: 'line', name: 'Position', data: downsamplePoints(productCache.position, filters.maxPoints) }]
-        : [],
-    [productCache, filters.maxPoints],
-  );
 
   const hoveredTradeDetails = useMemo(
     () => (effectiveTimestamp ? getTradesAtTimestamp(displayedTrades, effectiveTimestamp) : []),
     [displayedTrades, effectiveTimestamp],
   );
-
-  const selectedAlgorithmTimestamp =
-    effectiveTimestamp === null || algorithmTimestamps.length === 0
-      ? null
-      : findClosestTimestamp(algorithmTimestamps, effectiveTimestamp);
-  const selectedRow = selectedAlgorithmTimestamp === null ? null : rowsByTimestamp[selectedAlgorithmTimestamp];
-  const syncedLogs =
-    selectedRow && effectiveProduct ? formatProductLogs(selectedRow, effectiveProduct) : 'No timestamp selected.';
 
   return (
     <Container fluid>
@@ -332,20 +313,14 @@ export function DashboardRoutePage(): ReactNode {
             <Grid.Col span={{ xs: 12, md: 6 }}>
               <Chart title={`${productCache.product} - Product P/L`} series={pnlSeries} />
             </Grid.Col>
-            <Grid.Col span={{ xs: 12, md: 6 }}>
-              <Chart title={`${productCache.product} - Position`} series={positionSeries} />
-            </Grid.Col>
             <Grid.Col span={12}>
               <TimestampExplorerCard
                 timestamps={productTimelineTimestamps}
-                step={productTimelineStep}
+                step={TIMESTAMP_STEP}
                 effectiveTimestamp={effectiveTimestamp}
                 hoveredTradeDetails={hoveredTradeDetails}
                 onTimestampChange={setSelectedTimestamp}
               />
-            </Grid.Col>
-            <Grid.Col span={12}>
-              <LogViewerCard logs={syncedLogs} />
             </Grid.Col>
           </>
         )}
