@@ -259,10 +259,7 @@ export function DashboardRoutePage(): ReactNode {
       buildPriceChartSeries(productCache, filters, filteredOwnTakeTrades, filteredOwnMakeTrades, filteredMarketTrades),
     [productCache, filters, filteredOwnTakeTrades, filteredOwnMakeTrades, filteredMarketTrades],
   );
-  const priceChartOptions = useMemo(
-    () => getPriceChartOptions(setSelectedTimestamp),
-    [setSelectedTimestamp],
-  ); 
+  const priceChartOptions = useMemo(() => getPriceChartOptions(setSelectedTimestamp), [setSelectedTimestamp]);
 
   const pnlSeries = useMemo<Highcharts.SeriesOptionsType[]>(
     () =>
