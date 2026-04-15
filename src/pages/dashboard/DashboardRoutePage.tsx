@@ -164,10 +164,19 @@ function buildPriceChartSeries(
   return series;
 }
 
-function getPriceChartOptions(): Highcharts.Options {
+function getPriceChartOptions(onSelectTimestamp: (timestamp: number) => void): Highcharts.Options {
   return {
     plotOptions: {
       series: {
+        point: {
+          events: {
+            click(this: Highcharts.Point) {
+              if (typeof this.x === 'number') {
+                onSelectTimestamp(this.x);
+              }
+            },
+          },
+        },
         dataGrouping: {
           enabled: false,
         },
@@ -234,7 +243,6 @@ export function DashboardRoutePage(): ReactNode {
   const productCache = effectiveProduct ? productsByCache[effectiveProduct] : null;
 
   const productTimelineTimestamps = useMemo(() => (productCache ? [...productCache.timestamps] : []), [productCache]);
-  const productTimelineStep = TIMESTAMP_STEP;
 
   const effectiveTimestamp = useMemo(() => {
     if (productTimelineTimestamps.length === 0) return null;
@@ -251,7 +259,10 @@ export function DashboardRoutePage(): ReactNode {
       buildPriceChartSeries(productCache, filters, filteredOwnTakeTrades, filteredOwnMakeTrades, filteredMarketTrades),
     [productCache, filters, filteredOwnTakeTrades, filteredOwnMakeTrades, filteredMarketTrades],
   );
-  const priceChartOptions = useMemo(() => getPriceChartOptions(), []);
+  const priceChartOptions = useMemo(
+    () => getPriceChartOptions(setSelectedTimestamp),
+    [setSelectedTimestamp],
+  ); 
 
   const pnlSeries = useMemo<Highcharts.SeriesOptionsType[]>(
     () =>
@@ -308,7 +319,7 @@ export function DashboardRoutePage(): ReactNode {
             <Grid.Col span={12}>
               <TimestampExplorerCard
                 timestamps={productTimelineTimestamps}
-                step={productTimelineStep}
+                step={TIMESTAMP_STEP}
                 effectiveTimestamp={effectiveTimestamp}
                 hoveredTradeDetails={hoveredTradeDetails}
                 onTimestampChange={setSelectedTimestamp}
