@@ -108,12 +108,62 @@ export function DashboardFiltersCard({
         />
         <Checkbox
           label="Show mid price"
-          checked={filters.showMidPrice}
+          checked={filters.midPrice.show}
           onChange={event => {
             const checked = event.currentTarget.checked;
-            setFilters(prev => ({ ...prev, showMidPrice: checked }));
+            setFilters(prev => ({ ...prev, midPrice: { ...prev.midPrice, show: checked } }));
           }}
         />
+        <Checkbox
+          label="Drop zero mid price points"
+          checked={filters.midPrice.dropZeroPoints}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, midPrice: { ...prev.midPrice, dropZeroPoints: checked } }));
+          }}
+        />
+        {filters.midPrice.dropZeroPoints && (
+          <Stack gap="xs" ml="md">
+            <Checkbox
+              label="Advanced mid-price fill"
+              checked={filters.midPrice.advanced.enabled}
+              onChange={event => {
+                const checked = event.currentTarget.checked;
+                setFilters(prev => ({
+                  ...prev,
+                  midPrice: {
+                    ...prev.midPrice,
+                    advanced: {
+                      ...prev.midPrice.advanced,
+                      enabled: checked,
+                    },
+                  },
+                }));
+              }}
+            />
+            {filters.midPrice.advanced.enabled && (
+              <NumberInput
+                label="BID_ASK_SPREAD"
+                value={filters.midPrice.advanced.bidAskSpread}
+                onChange={value =>
+                  setFilters(prev => ({
+                    ...prev,
+                    midPrice: {
+                      ...prev.midPrice,
+                      advanced: {
+                        ...prev.midPrice.advanced,
+                        bidAskSpread: typeof value === 'number' ? value : 0,
+                      },
+                    },
+                  }))
+                }
+                min={0}
+                allowDecimal
+                decimalScale={4}
+              />
+            )}
+          </Stack>
+        )}
         <Checkbox
           label="Overlay product P/L"
           checked={filters.showPnlOverlay}
