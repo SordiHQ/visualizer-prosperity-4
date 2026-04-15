@@ -233,16 +233,18 @@ export function formatTradeHoverFields(point: DashboardTradePoint): string {
   ].join('<br/>');
 }
 
-export function toScatterData(points: DashboardTradePoint[]): Highcharts.PointOptionsObject[] {
-  const getRadius = (quantity: number): number => {
-    const radius = 3 + Math.sqrt(Math.max(0, quantity));
-    return Math.max(3, Math.min(14, radius));
-  };
+export function getTradeMarkerRadiusDelta(quantity: number): number {
+  if (quantity <= 3) {
+    return 0;
+  }
 
+  return 2 * Math.ceil((quantity - 3) / 3);
+}
+
+export function toScatterData(points: DashboardTradePoint[]): Highcharts.PointOptionsObject[] {
   return points.map(point => ({
     x: point.classifiedTrade.trade.timestamp,
     y: point.classifiedTrade.trade.price,
     custom: point,
-    marker: point.executionType === 'market' ? { radius: getRadius(point.quantity) } : undefined,
   }));
 }

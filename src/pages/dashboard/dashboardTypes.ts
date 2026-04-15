@@ -26,6 +26,7 @@ export interface DashboardFiltersState {
   showOrderBookLevels: boolean;
   showOwnTrades: boolean;
   showMarketTrades: boolean;
+  scaleTradeMarkersByVolume: boolean;
   showMidPrice: boolean;
   showPnlOverlay: boolean;
   minQuantity: number;

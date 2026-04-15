@@ -92,6 +92,14 @@ export function DashboardFiltersCard({
           }}
         />
         <Checkbox
+          label="Scale trade marker size by volume"
+          checked={filters.scaleTradeMarkersByVolume}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, scaleTradeMarkersByVolume: checked }));
+          }}
+        />
+        <Checkbox
           label="Show mid price"
           checked={filters.showMidPrice}
           onChange={event => {

@@ -15,12 +15,23 @@ import {
   findClosestTimestamp,
   formatTradeHoverFields,
   getDisplayedTrades,
+  getTradeMarkerRadiusDelta,
   getTradesAtTimestamp,
   toScatterData,
 } from './dashboardUtils.ts';
 import { TimestampExplorerCard } from './TimestampExplorerCard.tsx';
 
 const TIMESTAMP_STEP = 100;
+
+const OWN_TRADE_TAKE_BASE_RADIUS = 4;
+const OWN_TRADE_MAKE_BASE_RADIUS = 5;
+const MARKET_TRADE_BASE_RADIUS = 6;
+
+const OWN_TRADE_TAKE_MARKER_SYMBOL = 'circle';
+const OWN_TRADE_MAKE_MARKER_SYMBOL = 'diamond';
+const MARKET_TRADE_MARKER_SYMBOL = 'triangle';
+
+
 const OWN_TRADE_TAKE_COLOR_SELL_FILL = 'blue';
 const OWN_TRADE_MAKE_COLOR_SELL_FILL = 'cyan';
 
@@ -31,6 +42,7 @@ const defaultFilters: DashboardFiltersState = {
   showOrderBookLevels: true,
   showOwnTrades: true,
   showMarketTrades: true,
+  scaleTradeMarkersByVolume: false,
   showMidPrice: true,
   showPnlOverlay: false,
   minQuantity: 0,
@@ -50,6 +62,14 @@ function tradePointFormatter(this: Highcharts.Point): string {
     return `<span style="color:${this.color}">\u25CF</span> ${this.series.name}: <br/> <b>no trade details</b><br/>`;
   }
   return formatTradeTooltipHtml(String(this.color), this.series.name, custom);
+}
+
+function getTradeMarkerRadius(quantity: number, baseRadius: number, scaleByVolume: boolean): number {
+  if (!scaleByVolume) {
+    return baseRadius;
+  }
+
+  return baseRadius + getTradeMarkerRadiusDelta(quantity);
 }
 
 function buildPriceChartSeries(
@@ -104,6 +124,13 @@ function buildPriceChartSeries(
         point.custom?.classifiedTrade.trade.seller === 'SUBMISSION'
           ? OWN_TRADE_TAKE_COLOR_SELL_FILL
           : OWN_TRADE_TAKE_COLOR_BUY_FILL,
+      marker: {
+        radius: getTradeMarkerRadius(
+          point.custom?.quantity ?? 0,
+          OWN_TRADE_TAKE_BASE_RADIUS,
+          filters.scaleTradeMarkersByVolume,
+        ),
+      },
     }));
 
     const ownMakeData = toScatterData(filteredOwnMakeTrades).map(point => ({
@@ -112,13 +139,20 @@ function buildPriceChartSeries(
         point.custom?.classifiedTrade.trade.seller === 'SUBMISSION'
           ? OWN_TRADE_MAKE_COLOR_SELL_FILL
           : OWN_TRADE_MAKE_COLOR_BUY_FILL,
+      marker: {
+        radius: getTradeMarkerRadius(
+          point.custom?.quantity ?? 0,
+          OWN_TRADE_MAKE_BASE_RADIUS,
+          filters.scaleTradeMarkersByVolume,
+        ),
+      },
     }));
 
     series.push({
       type: 'scatter',
       name: 'TAKE Own trades',
       color: 'gray',
-      marker: { symbol: 'circle', radius: 4 },
+      marker: { symbol: OWN_TRADE_TAKE_MARKER_SYMBOL, radius: OWN_TRADE_TAKE_BASE_RADIUS },
       data: ownTakeData,
       tooltip: {
         pointFormatter: tradePointFormatter,
@@ -128,7 +162,7 @@ function buildPriceChartSeries(
       type: 'scatter',
       name: 'MAKE Own trades',
       color: 'gray',
-      marker: { symbol: 'diamond', radius: 5 },
+      marker: { symbol: OWN_TRADE_MAKE_MARKER_SYMBOL, radius: OWN_TRADE_MAKE_BASE_RADIUS },
       data: ownMakeData,
       tooltip: {
         pointFormatter: tradePointFormatter,
@@ -137,12 +171,23 @@ function buildPriceChartSeries(
   }
 
   if (filters.showMarketTrades) {
+    const marketTradeData = toScatterData(filteredMarketTrades).map(point => ({
+      ...point,
+      marker: {
+        radius: getTradeMarkerRadius(
+          point.custom?.quantity ?? 0,
+          MARKET_TRADE_BASE_RADIUS,
+          filters.scaleTradeMarkersByVolume,
+        ),
+      },
+    }));
+
     series.push({
       type: 'scatter',
       name: 'Market trades',
       color: 'magenta',
-      marker: { symbol: 'triangle', radius: 6 },
-      data: toScatterData(filteredMarketTrades),
+      marker: { symbol: MARKET_TRADE_MARKER_SYMBOL, radius: MARKET_TRADE_BASE_RADIUS },
+      data: marketTradeData,
       tooltip: {
         pointFormatter: tradePointFormatter,
       },
