@@ -149,7 +149,6 @@ export function collectProductSeries(
   for (const row of activityLogs) {
     const cache = ensureCache(productCaches, row.product);
     cache.timestamps.push(row.timestamp);
-    // FIXME: if the midprice is NONE calculate it (?)
     cache.midPrice.push([row.timestamp, row.midPrice]);
     cache.pnl.push([row.timestamp, row.profitLoss]);
 
@@ -176,6 +175,17 @@ export function collectProductSeries(
   }
 
   return productCaches;
+}
+
+export function getVisibleMidPriceSeriesData(
+  midPriceSeries: Array<[number, number]>,
+  dropZeroMidPrice: boolean,
+): Array<[number, number]> {
+  if (!dropZeroMidPrice) {
+    return midPriceSeries;
+  }
+
+  return midPriceSeries.filter(([, midPrice]) => midPrice !== 0);
 }
 
 export function getDisplayedTrades(

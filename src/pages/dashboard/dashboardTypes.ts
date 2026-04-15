@@ -28,6 +28,7 @@ export interface DashboardFiltersState {
   showMarketTrades: boolean;
   scaleTradeMarkersByVolume: boolean;
   showMidPrice: boolean;
+  dropZeroMidPrice: boolean;
   showPnlOverlay: boolean;
   minQuantity: number;
   maxQuantity: number;

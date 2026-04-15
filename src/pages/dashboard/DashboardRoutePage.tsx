@@ -17,6 +17,7 @@ import {
   getDisplayedTrades,
   getTradeMarkerRadiusDelta,
   getTradesAtTimestamp,
+  getVisibleMidPriceSeriesData,
   toScatterData,
 } from './dashboardUtils.ts';
 import { TimestampExplorerCard } from './TimestampExplorerCard.tsx';
@@ -43,6 +44,7 @@ const defaultFilters: DashboardFiltersState = {
   showMarketTrades: true,
   scaleTradeMarkersByVolume: false,
   showMidPrice: true,
+  dropZeroMidPrice: false,
   showPnlOverlay: false,
   minQuantity: 0,
   maxQuantity: 160,
@@ -99,7 +101,7 @@ function buildPriceChartSeries(
       name: 'Mid price',
       color: 'gray',
       dashStyle: 'Dash',
-      data: productCache.midPrice,
+      data: getVisibleMidPriceSeriesData(productCache.midPrice, filters.dropZeroMidPrice),
       marker: { enabled: false },
     });
   }

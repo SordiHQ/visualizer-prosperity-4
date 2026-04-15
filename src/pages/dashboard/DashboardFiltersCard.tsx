@@ -115,6 +115,14 @@ export function DashboardFiltersCard({
           }}
         />
         <Checkbox
+          label="Drop zero mid price points"
+          checked={filters.dropZeroMidPrice}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, dropZeroMidPrice: checked }));
+          }}
+        />
+        <Checkbox
           label="Overlay product P/L"
           checked={filters.showPnlOverlay}
           onChange={event => {
