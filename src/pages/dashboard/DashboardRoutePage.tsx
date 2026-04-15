@@ -31,7 +31,6 @@ const OWN_TRADE_TAKE_MARKER_SYMBOL = 'circle';
 const OWN_TRADE_MAKE_MARKER_SYMBOL = 'diamond';
 const MARKET_TRADE_MARKER_SYMBOL = 'triangle';
 
-
 const OWN_TRADE_TAKE_COLOR_SELL_FILL = 'blue';
 const OWN_TRADE_MAKE_COLOR_SELL_FILL = 'cyan';
 
@@ -46,7 +45,7 @@ const defaultFilters: DashboardFiltersState = {
   showMidPrice: true,
   showPnlOverlay: false,
   minQuantity: 0,
-  maxQuantity: 50,
+  maxQuantity: 160,
   includeTraderIds: '',
   excludeTraderIds: '',
   maxPoints: 5000,

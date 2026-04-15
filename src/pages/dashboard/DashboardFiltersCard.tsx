@@ -1,4 +1,4 @@
-import { Checkbox, Group, NumberInput, Select, Stack, TextInput } from '@mantine/core';
+import { Checkbox, Divider, Group, NumberInput, Select, Stack, Text, TextInput } from '@mantine/core';
 import { ReactNode } from 'react';
 import { VisualizerCard } from '../visualizer/VisualizerCard.tsx';
 import { DashboardFiltersState } from './dashboardTypes.ts';
@@ -29,6 +29,10 @@ export function DashboardFiltersCard({
           searchable
         />
 
+        <Divider />
+        <Text fw={600} size="sm">
+          Trades
+        </Text>
         <Group grow>
           <NumberInput
             label="Min qty"
@@ -47,7 +51,14 @@ export function DashboardFiltersCard({
             allowDecimal={false}
           />
         </Group>
-
+        <Checkbox
+          label="Scale trade marker size by volume"
+          checked={filters.scaleTradeMarkersByVolume}
+          onChange={event => {
+            const checked = event.currentTarget.checked;
+            setFilters(prev => ({ ...prev, scaleTradeMarkersByVolume: checked }));
+          }}
+        />
         <TextInput
           label="Include trader IDs (CSV)"
           placeholder="alice,bob"
@@ -67,6 +78,10 @@ export function DashboardFiltersCard({
           }}
         />
 
+        <Divider />
+        <Text fw={600} size="sm">
+          Filters
+        </Text>
         <Checkbox
           label="Show order book levels"
           checked={filters.showOrderBookLevels}
@@ -89,14 +104,6 @@ export function DashboardFiltersCard({
           onChange={event => {
             const checked = event.currentTarget.checked;
             setFilters(prev => ({ ...prev, showMarketTrades: checked }));
-          }}
-        />
-        <Checkbox
-          label="Scale trade marker size by volume"
-          checked={filters.scaleTradeMarkersByVolume}
-          onChange={event => {
-            const checked = event.currentTarget.checked;
-            setFilters(prev => ({ ...prev, scaleTradeMarkersByVolume: checked }));
           }}
         />
         <Checkbox
