@@ -43,8 +43,14 @@ const defaultFilters: DashboardFiltersState = {
   showOwnTrades: true,
   showMarketTrades: true,
   scaleTradeMarkersByVolume: false,
-  showMidPrice: true,
-  dropZeroMidPrice: false,
+  midPrice: {
+    show: true,
+    dropZeroPoints: false,
+    advanced: {
+      enabled: false,
+      bidAskSpread: 0,
+    },
+  },
   showPnlOverlay: false,
   minQuantity: 0,
   maxQuantity: 160,
@@ -95,13 +101,18 @@ function buildPriceChartSeries(
     }
   }
 
-  if (filters.showMidPrice) {
+  if (filters.midPrice.show) {
     series.push({
       type: 'line',
       name: 'Mid price',
       color: 'gray',
       dashStyle: 'Dash',
-      data: getVisibleMidPriceSeriesData(productCache.midPrice, filters.dropZeroMidPrice),
+      data: getVisibleMidPriceSeriesData(
+        productCache.midPrice,
+        productCache.bidSeries,
+        productCache.askSeries,
+        filters.midPrice,
+      ),
       marker: { enabled: false },
     });
   }

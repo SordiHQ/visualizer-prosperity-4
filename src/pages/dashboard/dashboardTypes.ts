@@ -22,13 +22,23 @@ export interface ProductSeriesCache {
   marketTrades: DashboardTradePoint[];
 }
 
+export interface MidPriceAdvancedFilters {
+  enabled: boolean;
+  bidAskSpread: number;
+}
+
+export interface MidPriceFilters {
+  show: boolean;
+  dropZeroPoints: boolean;
+  advanced: MidPriceAdvancedFilters;
+}
+
 export interface DashboardFiltersState {
   showOrderBookLevels: boolean;
   showOwnTrades: boolean;
   showMarketTrades: boolean;
   scaleTradeMarkersByVolume: boolean;
-  showMidPrice: boolean;
-  dropZeroMidPrice: boolean;
+  midPrice: MidPriceFilters;
   showPnlOverlay: boolean;
   minQuantity: number;
   maxQuantity: number;

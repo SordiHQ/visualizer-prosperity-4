@@ -1,7 +1,7 @@
 import Highcharts from 'highcharts';
 import { ActivityLogRow, ClassifiedTrade } from '../../models.ts';
 import { formatNumber } from '../../utils/format.ts';
-import { DashboardFiltersState, DashboardTradePoint, ProductSeriesCache } from './dashboardTypes.ts';
+import { DashboardFiltersState, DashboardTradePoint, MidPriceFilters, ProductSeriesCache } from './dashboardTypes.ts';
 
 export function findClosestTimestamp(timestamps: number[], target: number): number {
   if (timestamps.length === 0) {
@@ -179,13 +179,45 @@ export function collectProductSeries(
 
 export function getVisibleMidPriceSeriesData(
   midPriceSeries: Array<[number, number]>,
-  dropZeroMidPrice: boolean,
+  bidSeries: Array<Array<[number, number]>>,
+  askSeries: Array<Array<[number, number]>>,
+  midPriceFilters: MidPriceFilters,
 ): Array<[number, number]> {
-  if (!dropZeroMidPrice) {
-    return midPriceSeries;
+  let visibleSeries = midPriceSeries;
+
+  if (midPriceFilters.dropZeroPoints) {
+    visibleSeries = visibleSeries.filter(([, midPrice]) => midPrice !== 0);
   }
 
-  return midPriceSeries.filter(([, midPrice]) => midPrice !== 0);
+  if (!midPriceFilters.dropZeroPoints || !midPriceFilters.advanced.enabled) {
+    return visibleSeries;
+  }
+
+  const bidTimestamps = new Set<number>();
+  for (const level of bidSeries) {
+    for (const [timestamp] of level) {
+      bidTimestamps.add(timestamp);
+    }
+  }
+
+  const askTimestamps = new Set<number>();
+  for (const level of askSeries) {
+    for (const [timestamp] of level) {
+      askTimestamps.add(timestamp);
+    }
+  }
+
+  const halfSpread = midPriceFilters.advanced.bidAskSpread / 2;
+  return visibleSeries.map(([timestamp, midPrice]) => {
+    const missingBidOrders = !bidTimestamps.has(timestamp);
+    const missingAskOrders = !askTimestamps.has(timestamp);
+    if (!missingBidOrders && !missingAskOrders) {
+      return [timestamp, midPrice];
+    }
+
+    const filledMidPrice = midPrice - halfSpread * Number(missingBidOrders) + halfSpread * Number(missingAskOrders);
+    return [timestamp, filledMidPrice];
+  });
 }
 
 export function getDisplayedTrades(
