@@ -45,7 +45,7 @@ const defaultFilters: DashboardFiltersState = {
   scaleTradeMarkersByVolume: false,
   midPrice: {
     show: true,
-    dropZeroPoints: false,
+    dropZeroPoints: true,
     advanced: {
       enabled: false,
       bidAskSpread: 0,
