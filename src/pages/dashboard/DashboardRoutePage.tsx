@@ -45,7 +45,7 @@ const defaultFilters: DashboardFiltersState = {
   scaleTradeMarkersByVolume: false,
   midPrice: {
     show: true,
-    dropZeroPoints: false,
+    dropZeroPoints: true,
     advanced: {
       enabled: false,
       bidAskSpread: 0,
@@ -365,6 +365,8 @@ export function DashboardRoutePage(): ReactNode {
                 title={`${productCache.product} - Price, order book and trades`}
                 series={priceChartSeries}
                 options={priceChartOptions}
+                showPanControls
+                showZoomControls
               />
             </Grid.Col>
             <Grid.Col span={{ xs: 12, md: 6 }}>

@@ -1,3 +1,13 @@
+import { ActionIcon, Box, Group } from '@mantine/core';
+import {
+  IconArrowDown,
+  IconArrowLeft,
+  IconArrowRight,
+  IconArrowUp,
+  IconRefresh,
+  IconZoomIn,
+  IconZoomOut,
+} from '@tabler/icons-react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsAccessibility from 'highcharts/modules/accessibility';
 import HighchartsExporting from 'highcharts/modules/exporting';
@@ -5,10 +15,12 @@ import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsHighContrastDarkTheme from 'highcharts/themes/high-contrast-dark';
 import HighchartsReact from 'highcharts-react-official';
 import merge from 'lodash/merge';
-import { ReactNode, useEffect, useMemo, useRef } from 'react';
+import { ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useActualColorScheme } from '../../hooks/use-actual-color-scheme.ts';
 import { useStore } from '../../store.ts';
 import { formatNumber } from '../../utils/format.ts';
+import { panChart, type PanDirection } from './chartPanUtils.ts';
+import { resetChartZoom, zoomChart, type ZoomDirection } from './chartZoomUtils.ts';
 import { VisualizerCard } from './VisualizerCard.tsx';
 
 HighchartsAccessibility(Highcharts);
@@ -49,13 +61,34 @@ interface ChartProps {
   series: Highcharts.SeriesOptionsType[];
   min?: number;
   max?: number;
+  showPanControls?: boolean;
+  showZoomControls?: boolean;
 }
 
-export function Chart({ title, options, series, min, max }: ChartProps): ReactNode {
+export function Chart({
+  title,
+  options,
+  series,
+  min,
+  max,
+  showPanControls = false,
+  showZoomControls = false,
+}: ChartProps): ReactNode {
   const colorScheme = useActualColorScheme();
   const selectedTimestamp = useStore(state => state.selectedTimestamp);
   const setSelectedTimestamp = useStore(state => state.setSelectedTimestamp);
   const chartRef = useRef<HighchartsReact.RefObject>(null);
+  const handlePan = useCallback((direction: PanDirection) => {
+    panChart(chartRef.current?.chart, direction);
+  }, []);
+
+  const handleZoom = useCallback((direction: ZoomDirection) => {
+    zoomChart(chartRef.current?.chart, direction);
+  }, []);
+
+  const handleResetZoom = useCallback(() => {
+    resetChartZoom(chartRef.current?.chart);
+  }, []);
 
   const fullOptions = useMemo((): Highcharts.Options => {
     const themeOptions = colorScheme === 'light' ? {} : getThemeOptions(HighchartsHighContrastDarkTheme);
@@ -194,13 +227,54 @@ export function Chart({ title, options, series, min, max }: ChartProps): ReactNo
 
   return (
     <VisualizerCard p={0}>
-      <HighchartsReact
-        ref={chartRef}
-        highcharts={Highcharts}
-        constructorType={'stockChart'}
-        options={fullOptions}
-        immutable={false}
-      />
+      <Box pos="relative">
+        {(showPanControls || showZoomControls) && (
+          <Box pos="absolute" top={8} right={8} style={{ zIndex: 2 }}>
+            {showPanControls && (
+              <>
+                <Group justify="center" gap={4} mb={4}>
+                  <ActionIcon variant="filled" aria-label="Pan chart up" onClick={() => handlePan('up')}>
+                    <IconArrowUp size={16} />
+                  </ActionIcon>
+                </Group>
+                <Group justify="center" gap={4} wrap="nowrap" mb={4}>
+                  <ActionIcon variant="filled" aria-label="Pan chart left" onClick={() => handlePan('left')}>
+                    <IconArrowLeft size={16} />
+                  </ActionIcon>
+                  <ActionIcon variant="filled" aria-label="Pan chart right" onClick={() => handlePan('right')}>
+                    <IconArrowRight size={16} />
+                  </ActionIcon>
+                </Group>
+                <Group justify="center" gap={4} mb={showZoomControls ? 6 : 0}>
+                  <ActionIcon variant="filled" aria-label="Pan chart down" onClick={() => handlePan('down')}>
+                    <IconArrowDown size={16} />
+                  </ActionIcon>
+                </Group>
+              </>
+            )}
+            {showZoomControls && (
+              <Group justify="center" gap={4} wrap="nowrap">
+                <ActionIcon variant="filled" aria-label="Zoom chart in" onClick={() => handleZoom('in')}>
+                  <IconZoomIn size={16} />
+                </ActionIcon>
+                <ActionIcon variant="filled" aria-label="Reset chart zoom" onClick={handleResetZoom}>
+                  <IconRefresh size={16} />
+                </ActionIcon>
+                <ActionIcon variant="filled" aria-label="Zoom chart out" onClick={() => handleZoom('out')}>
+                  <IconZoomOut size={16} />
+                </ActionIcon>
+              </Group>
+            )}
+          </Box>
+        )}
+        <HighchartsReact
+          ref={chartRef}
+          highcharts={Highcharts}
+          constructorType={'stockChart'}
+          options={fullOptions}
+          immutable={false}
+        />
+      </Box>
     </VisualizerCard>
   );
 }
