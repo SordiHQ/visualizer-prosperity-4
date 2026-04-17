@@ -1,5 +1,13 @@
 import { ActionIcon, Box, Group } from '@mantine/core';
-import { IconArrowDown, IconArrowLeft, IconArrowRight, IconArrowUp } from '@tabler/icons-react';
+import {
+  IconArrowDown,
+  IconArrowLeft,
+  IconArrowRight,
+  IconArrowUp,
+  IconRefresh,
+  IconZoomIn,
+  IconZoomOut,
+} from '@tabler/icons-react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsAccessibility from 'highcharts/modules/accessibility';
 import HighchartsExporting from 'highcharts/modules/exporting';
@@ -11,6 +19,8 @@ import { ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useActualColorScheme } from '../../hooks/use-actual-color-scheme.ts';
 import { useStore } from '../../store.ts';
 import { formatNumber } from '../../utils/format.ts';
+import { panChart, type PanDirection } from './chartPanUtils.ts';
+import { resetChartZoom, zoomChart, type ZoomDirection } from './chartZoomUtils.ts';
 import { VisualizerCard } from './VisualizerCard.tsx';
 
 HighchartsAccessibility(Highcharts);
@@ -52,94 +62,33 @@ interface ChartProps {
   min?: number;
   max?: number;
   showPanControls?: boolean;
+  showZoomControls?: boolean;
 }
 
-const PAN_RATIO = 0.2;
-
-function getAxisExtremes(axis: Highcharts.Axis): { min: number; max: number } | null {
-  const { min, max, dataMin, dataMax } = axis.getExtremes();
-  const effectiveMin = typeof min === 'number' ? min : dataMin;
-  const effectiveMax = typeof max === 'number' ? max : dataMax;
-  if (typeof effectiveMin !== 'number' || typeof effectiveMax !== 'number') {
-    return null;
-  }
-  return { min: effectiveMin, max: effectiveMax };
-}
-
-export function Chart({ title, options, series, min, max, showPanControls = false }: ChartProps): ReactNode {
+export function Chart({
+  title,
+  options,
+  series,
+  min,
+  max,
+  showPanControls = false,
+  showZoomControls = false,
+}: ChartProps): ReactNode {
   const colorScheme = useActualColorScheme();
   const selectedTimestamp = useStore(state => state.selectedTimestamp);
   const setSelectedTimestamp = useStore(state => state.setSelectedTimestamp);
   const chartRef = useRef<HighchartsReact.RefObject>(null);
-  const panAxis = useCallback((axis: Highcharts.Axis | undefined, direction: -1 | 1): boolean => {
-    if (!axis) {
-      return false;
-    }
-
-    const extremes = getAxisExtremes(axis);
-    if (!extremes) {
-      return false;
-    }
-
-    const range = extremes.max - extremes.min;
-    if (range <= 0) {
-      return false;
-    }
-
-    const shift = range * PAN_RATIO * direction;
-    let nextMin = extremes.min + shift;
-    let nextMax = extremes.max + shift;
-
-    const { dataMin, dataMax } = axis.getExtremes();
-    if (typeof dataMin === 'number' && typeof dataMax === 'number') {
-      const dataRange = dataMax - dataMin;
-      if (range >= dataRange) {
-        nextMin = dataMin;
-        nextMax = dataMax;
-      } else {
-        if (nextMin < dataMin) {
-          nextMin = dataMin;
-          nextMax = dataMin + range;
-        }
-
-        if (nextMax > dataMax) {
-          nextMax = dataMax;
-          nextMin = dataMax - range;
-        }
-      }
-    }
-
-    axis.setExtremes(nextMin, nextMax, false, false);
-    return true;
+  const handlePan = useCallback((direction: PanDirection) => {
+    panChart(chartRef.current?.chart, direction);
   }, []);
 
-  const panChart = useCallback(
-    (direction: 'left' | 'right' | 'up' | 'down') => {
-      const chart = chartRef.current?.chart;
-      if (!chart) {
-        return;
-      }
+  const handleZoom = useCallback((direction: ZoomDirection) => {
+    zoomChart(chartRef.current?.chart, direction);
+  }, []);
 
-      let didPan = false;
-      if (direction === 'left') {
-        didPan = panAxis(chart.xAxis[0], -1);
-      }
-      if (direction === 'right') {
-        didPan = panAxis(chart.xAxis[0], 1);
-      }
-      if (direction === 'up') {
-        didPan = panAxis(chart.yAxis[0], 1);
-      }
-      if (direction === 'down') {
-        didPan = panAxis(chart.yAxis[0], -1);
-      }
-
-      if (didPan) {
-        chart.redraw(false);
-      }
-    },
-    [panAxis],
-  );
+  const handleResetZoom = useCallback(() => {
+    resetChartZoom(chartRef.current?.chart);
+  }, []);
 
   const fullOptions = useMemo((): Highcharts.Options => {
     const themeOptions = colorScheme === 'light' ? {} : getThemeOptions(HighchartsHighContrastDarkTheme);
@@ -279,26 +228,43 @@ export function Chart({ title, options, series, min, max, showPanControls = fals
   return (
     <VisualizerCard p={0}>
       <Box pos="relative">
-        {showPanControls && (
+        {(showPanControls || showZoomControls) && (
           <Box pos="absolute" top={8} right={8} style={{ zIndex: 2 }}>
-            <Group justify="center" gap={4} mb={4}>
-              <ActionIcon variant="filled" aria-label="Pan chart up" onClick={() => panChart('up')}>
-                <IconArrowUp size={16} />
-              </ActionIcon>
-            </Group>
-            <Group justify="center" gap={4} wrap="nowrap" mb={4}>
-              <ActionIcon variant="filled" aria-label="Pan chart left" onClick={() => panChart('left')}>
-                <IconArrowLeft size={16} />
-              </ActionIcon>
-              <ActionIcon variant="filled" aria-label="Pan chart right" onClick={() => panChart('right')}>
-                <IconArrowRight size={16} />
-              </ActionIcon>
-            </Group>
-            <Group justify="center" gap={4}>
-              <ActionIcon variant="filled" aria-label="Pan chart down" onClick={() => panChart('down')}>
-                <IconArrowDown size={16} />
-              </ActionIcon>
-            </Group>
+            {showPanControls && (
+              <>
+                <Group justify="center" gap={4} mb={4}>
+                  <ActionIcon variant="filled" aria-label="Pan chart up" onClick={() => handlePan('up')}>
+                    <IconArrowUp size={16} />
+                  </ActionIcon>
+                </Group>
+                <Group justify="center" gap={4} wrap="nowrap" mb={4}>
+                  <ActionIcon variant="filled" aria-label="Pan chart left" onClick={() => handlePan('left')}>
+                    <IconArrowLeft size={16} />
+                  </ActionIcon>
+                  <ActionIcon variant="filled" aria-label="Pan chart right" onClick={() => handlePan('right')}>
+                    <IconArrowRight size={16} />
+                  </ActionIcon>
+                </Group>
+                <Group justify="center" gap={4} mb={showZoomControls ? 6 : 0}>
+                  <ActionIcon variant="filled" aria-label="Pan chart down" onClick={() => handlePan('down')}>
+                    <IconArrowDown size={16} />
+                  </ActionIcon>
+                </Group>
+              </>
+            )}
+            {showZoomControls && (
+              <Group justify="center" gap={4} wrap="nowrap">
+                <ActionIcon variant="filled" aria-label="Zoom chart in" onClick={() => handleZoom('in')}>
+                  <IconZoomIn size={16} />
+                </ActionIcon>
+                <ActionIcon variant="filled" aria-label="Reset chart zoom" onClick={handleResetZoom}>
+                  <IconRefresh size={16} />
+                </ActionIcon>
+                <ActionIcon variant="filled" aria-label="Zoom chart out" onClick={() => handleZoom('out')}>
+                  <IconZoomOut size={16} />
+                </ActionIcon>
+              </Group>
+            )}
           </Box>
         )}
         <HighchartsReact

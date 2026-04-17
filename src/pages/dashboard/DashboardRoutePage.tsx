@@ -366,6 +366,7 @@ export function DashboardRoutePage(): ReactNode {
                 series={priceChartSeries}
                 options={priceChartOptions}
                 showPanControls
+                showZoomControls
               />
             </Grid.Col>
             <Grid.Col span={{ xs: 12, md: 6 }}>
