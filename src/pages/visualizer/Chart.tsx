@@ -1,3 +1,5 @@
+import { ActionIcon, Box, Group } from '@mantine/core';
+import { IconArrowDown, IconArrowLeft, IconArrowRight, IconArrowUp } from '@tabler/icons-react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsAccessibility from 'highcharts/modules/accessibility';
 import HighchartsExporting from 'highcharts/modules/exporting';
@@ -5,7 +7,7 @@ import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsHighContrastDarkTheme from 'highcharts/themes/high-contrast-dark';
 import HighchartsReact from 'highcharts-react-official';
 import merge from 'lodash/merge';
-import { ReactNode, useEffect, useMemo, useRef } from 'react';
+import { ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useActualColorScheme } from '../../hooks/use-actual-color-scheme.ts';
 import { useStore } from '../../store.ts';
 import { formatNumber } from '../../utils/format.ts';
@@ -49,13 +51,95 @@ interface ChartProps {
   series: Highcharts.SeriesOptionsType[];
   min?: number;
   max?: number;
+  showPanControls?: boolean;
 }
 
-export function Chart({ title, options, series, min, max }: ChartProps): ReactNode {
+const PAN_RATIO = 0.2;
+
+function getAxisExtremes(axis: Highcharts.Axis): { min: number; max: number } | null {
+  const { min, max, dataMin, dataMax } = axis.getExtremes();
+  const effectiveMin = typeof min === 'number' ? min : dataMin;
+  const effectiveMax = typeof max === 'number' ? max : dataMax;
+  if (typeof effectiveMin !== 'number' || typeof effectiveMax !== 'number') {
+    return null;
+  }
+  return { min: effectiveMin, max: effectiveMax };
+}
+
+export function Chart({ title, options, series, min, max, showPanControls = false }: ChartProps): ReactNode {
   const colorScheme = useActualColorScheme();
   const selectedTimestamp = useStore(state => state.selectedTimestamp);
   const setSelectedTimestamp = useStore(state => state.setSelectedTimestamp);
   const chartRef = useRef<HighchartsReact.RefObject>(null);
+  const panAxis = useCallback((axis: Highcharts.Axis | undefined, direction: -1 | 1): boolean => {
+    if (!axis) {
+      return false;
+    }
+
+    const extremes = getAxisExtremes(axis);
+    if (!extremes) {
+      return false;
+    }
+
+    const range = extremes.max - extremes.min;
+    if (range <= 0) {
+      return false;
+    }
+
+    const shift = range * PAN_RATIO * direction;
+    let nextMin = extremes.min + shift;
+    let nextMax = extremes.max + shift;
+
+    const { dataMin, dataMax } = axis.getExtremes();
+    if (typeof dataMin === 'number' && typeof dataMax === 'number') {
+      const dataRange = dataMax - dataMin;
+      if (range >= dataRange) {
+        nextMin = dataMin;
+        nextMax = dataMax;
+      } else {
+        if (nextMin < dataMin) {
+          nextMin = dataMin;
+          nextMax = dataMin + range;
+        }
+
+        if (nextMax > dataMax) {
+          nextMax = dataMax;
+          nextMin = dataMax - range;
+        }
+      }
+    }
+
+    axis.setExtremes(nextMin, nextMax, false, false);
+    return true;
+  }, []);
+
+  const panChart = useCallback(
+    (direction: 'left' | 'right' | 'up' | 'down') => {
+      const chart = chartRef.current?.chart;
+      if (!chart) {
+        return;
+      }
+
+      let didPan = false;
+      if (direction === 'left') {
+        didPan = panAxis(chart.xAxis[0], -1);
+      }
+      if (direction === 'right') {
+        didPan = panAxis(chart.xAxis[0], 1);
+      }
+      if (direction === 'up') {
+        didPan = panAxis(chart.yAxis[0], 1);
+      }
+      if (direction === 'down') {
+        didPan = panAxis(chart.yAxis[0], -1);
+      }
+
+      if (didPan) {
+        chart.redraw(false);
+      }
+    },
+    [panAxis],
+  );
 
   const fullOptions = useMemo((): Highcharts.Options => {
     const themeOptions = colorScheme === 'light' ? {} : getThemeOptions(HighchartsHighContrastDarkTheme);
@@ -194,13 +278,37 @@ export function Chart({ title, options, series, min, max }: ChartProps): ReactNo
 
   return (
     <VisualizerCard p={0}>
-      <HighchartsReact
-        ref={chartRef}
-        highcharts={Highcharts}
-        constructorType={'stockChart'}
-        options={fullOptions}
-        immutable={false}
-      />
+      <Box pos="relative">
+        {showPanControls && (
+          <Box pos="absolute" top={8} right={8} style={{ zIndex: 2 }}>
+            <Group justify="center" gap={4} mb={4}>
+              <ActionIcon variant="filled" aria-label="Pan chart up" onClick={() => panChart('up')}>
+                <IconArrowUp size={16} />
+              </ActionIcon>
+            </Group>
+            <Group justify="center" gap={4} wrap="nowrap" mb={4}>
+              <ActionIcon variant="filled" aria-label="Pan chart left" onClick={() => panChart('left')}>
+                <IconArrowLeft size={16} />
+              </ActionIcon>
+              <ActionIcon variant="filled" aria-label="Pan chart right" onClick={() => panChart('right')}>
+                <IconArrowRight size={16} />
+              </ActionIcon>
+            </Group>
+            <Group justify="center" gap={4}>
+              <ActionIcon variant="filled" aria-label="Pan chart down" onClick={() => panChart('down')}>
+                <IconArrowDown size={16} />
+              </ActionIcon>
+            </Group>
+          </Box>
+        )}
+        <HighchartsReact
+          ref={chartRef}
+          highcharts={Highcharts}
+          constructorType={'stockChart'}
+          options={fullOptions}
+          immutable={false}
+        />
+      </Box>
     </VisualizerCard>
   );
 }

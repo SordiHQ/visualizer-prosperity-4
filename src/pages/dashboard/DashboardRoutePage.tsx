@@ -365,6 +365,7 @@ export function DashboardRoutePage(): ReactNode {
                 title={`${productCache.product} - Price, order book and trades`}
                 series={priceChartSeries}
                 options={priceChartOptions}
+                showPanControls
               />
             </Grid.Col>
             <Grid.Col span={{ xs: 12, md: 6 }}>
