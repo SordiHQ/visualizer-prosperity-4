@@ -289,6 +289,8 @@ export function DashboardRoutePage(): ReactNode {
   const [filters, setFilters] = useState<DashboardFiltersState>(defaultFilters);
 
   if (algorithm === null) return <Navigate to={`/${search}`} />;
+  const loadedFileName = algorithm?.loadedFileName ?? algorithm?.summary?.fileName;
+
 
   const productsByCache = useMemo(
     () => collectProductSeries(algorithm.activityLogs, algorithm.marketTrades),
@@ -334,6 +336,19 @@ export function DashboardRoutePage(): ReactNode {
   return (
     <Container fluid>
       <Grid>
+      {algorithm.source === 'prosperity-submission' && (
+          <Grid.Col span={12}>
+            <Alert color="blue" title="Prosperity Submission">
+              This log was detected as an official Prosperity submission
+              {algorithm.submissionId ? ` (submission ID: ${algorithm.submissionId}).` : '.'}
+              {loadedFileName && (
+                <Text mt="xs" size="lg" ta="center">
+                  Filename: <b>{loadedFileName}</b>
+                </Text>
+              )}
+            </Alert>
+          </Grid.Col>
+        )}
         <Grid.Col span={12}>
           <VisualizerCard>
             <Group justify="space-between">

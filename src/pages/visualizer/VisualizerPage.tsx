@@ -1,4 +1,4 @@
-import { Alert, Button, Container, Grid, Group, Title } from '@mantine/core';
+import { Alert, Button, Container, Grid, Group, Text, Title } from '@mantine/core';
 import { ReactNode } from 'react';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { useStore } from '../../store.ts';
@@ -17,6 +17,7 @@ import { VolumeChart } from './VolumeChart.tsx';
 
 export function VisualizerPage(): ReactNode {
   const algorithm = useStore(state => state.algorithm);
+  const loadedFileName = algorithm?.loadedFileName ?? algorithm?.summary?.fileName;
 
   const { search } = useLocation();
 
@@ -110,6 +111,11 @@ export function VisualizerPage(): ReactNode {
             <Alert color="blue" title="Prosperity Submission">
               This log was detected as an official Prosperity submission
               {algorithm.submissionId ? ` (submission ID: ${algorithm.submissionId}).` : '.'}
+              {loadedFileName && (
+                <Text mt="xs" size="lg" ta="center">
+                  Filename: <b>{loadedFileName}</b>
+                </Text>
+              )}
             </Alert>
           </Grid.Col>
         )}
