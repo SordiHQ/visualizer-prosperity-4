@@ -36,7 +36,8 @@ export function LoadFromFile(): ReactNode {
 
         reader.addEventListener('load', () => {
           try {
-            setAlgorithm(parseAlgorithmLogs(reader.result as string));
+            const parsedAlgorithm = parseAlgorithmLogs(reader.result as string);
+            setAlgorithm({ ...parsedAlgorithm, loadedFileName: files[0].name });
             navigate('/visualizer');
             resolve();
           } catch (err: any) {

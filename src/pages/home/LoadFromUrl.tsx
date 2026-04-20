@@ -8,6 +8,23 @@ import { useStore } from '../../store.ts';
 import { parseAlgorithmLogs } from '../../utils/algorithm_new.tsx';
 import { HomeCard } from './HomeCard.tsx';
 
+function getFileNameFromUrl(rawUrl: string): string {
+  try {
+    const parsedUrl = new URL(rawUrl);
+    const pathSegments = parsedUrl.pathname.split('/').filter(Boolean);
+    const lastSegment = pathSegments[pathSegments.length - 1];
+
+    if (lastSegment) {
+      return decodeURIComponent(lastSegment);
+    }
+
+    return parsedUrl.hostname;
+  } catch {
+    const fallbackSegments = rawUrl.split('/').filter(Boolean);
+    return fallbackSegments[fallbackSegments.length - 1] ?? rawUrl;
+  }
+}
+
 export function LoadFromUrl(): ReactNode {
   const [url, setUrl] = useState('');
 
@@ -19,7 +36,8 @@ export function LoadFromUrl(): ReactNode {
 
   const loadAlgorithm = useAsync(async (logsUrl: string): Promise<void> => {
     const logsResponse = await axios.get(logsUrl);
-    setAlgorithm(parseAlgorithmLogs(logsResponse.data));
+    const parsedAlgorithm = parseAlgorithmLogs(logsResponse.data);
+    setAlgorithm({ ...parsedAlgorithm, loadedFileName: getFileNameFromUrl(logsUrl) });
     navigate(`/visualizer?open=${logsUrl}`);
   });
 

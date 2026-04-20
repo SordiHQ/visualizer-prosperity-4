@@ -130,6 +130,7 @@ export interface Algorithm {
   data: AlgorithmDataRow[];
   source?: AlgorithmSource;
   submissionId?: string;
+  loadedFileName?: string;
   warnings?: string[];
   marketTrades: ClassifiedTrade[]; // FIXME: maybe it should be optional for backward compatibility
 }
