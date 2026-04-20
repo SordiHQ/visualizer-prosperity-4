@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { ScrollableCodeHighlight } from '../../components/ScrollableCodeHighlight.tsx';
 import { HomeCard } from './HomeCard.tsx';
 import { LoadFromFile } from './LoadFromFile.tsx';
-import { LoadFromProsperity } from './LoadFromProsperity.tsx';
+// import { LoadFromProsperity } from './LoadFromProsperity.tsx';
 import { LoadFromUrl } from './LoadFromUrl.tsx';
 
 export function HomePage(): ReactNode {
@@ -170,6 +170,10 @@ class Trader:
           </Text>
         </HomeCard>
 
+        <LoadFromFile />
+        {/* <LoadFromProsperity /> */}
+        <LoadFromUrl />
+
         <HomeCard title="Prerequisites">
           <Text>
             IMC Prosperity 4 Visualizer assumes your algorithm logs in a certain format. Algorithms that use a different
@@ -179,10 +183,6 @@ class Trader:
           </Text>
           <ScrollableCodeHighlight code={exampleCode} language="python" />
         </HomeCard>
-
-        <LoadFromFile />
-        <LoadFromProsperity />
-        <LoadFromUrl />
       </Stack>
     </Container>
   );
